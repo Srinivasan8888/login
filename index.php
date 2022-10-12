@@ -1,7 +1,43 @@
 <?php
-include_once("connection.php");
 session_start();
-//require "connection.php";
+include_once("connection.php");
+       
+if(isset($_POST['submit']))
+{
+    $email = $_POST["email"];
+    $plaintext = $_POST["password"];
+    //$plaintext = 'admin';
+    $password = '3sc3RLrpd17';
+    $method = 'aes-256-cbc';
+ 
+ // Must be exact 32 chars (256 bit)
+    $password = substr(hash('sha256', $password, true), 0, 32);
+ //echo "Password:" . $password . "\n";
+ 
+ // IV must be exact 16 chars (128 bit)
+    $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
+ 
+ // av3DYGLkwBsErphcyYp+imUW4QKs19hUnFyyYcXwURU=
+    $encrypted = base64_encode(openssl_encrypt($plaintext, $method, $password, OPENSSL_RAW_DATA, $iv));
+ 
+    $query = "SELECT * FROM accounts WHERE email ='".$email."' AND password ='".$encrypted."'";
+    $result = mysqli_query($conn, $query);
+    if(mysqli_num_rows($result)==1)
+    {
+        
+        //echo "<script>alert('logged-in')</script>";       
+        $_SESSION['email']=$email;
+        $_SESSION['password']=$encrypted;
+        //echo "entering";
+        header("Location: logged.php");
+        
+    }
+    else
+    {
+      header("Location: https://www.google.com");
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -272,82 +308,6 @@ h2, h4{
               <div class="text sign-up-text">Don't have an account? <span>Sigup now</span></div>
             </div>
         </form>
-        
-<?php
-        if(isset($_POST['submit']))
-{
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $query = "SELECT * FROM accounts WHERE email ='".$email."' AND password ='".$password."'";
-    $result = mysqli_query($conn, $query);
-    if(mysqli_num_rows($result)==1)
-    {
-      echo "<script>alert('logged-in')</script>";
-        session_start();
-        $_SESSION['email']=$email;
-        $_SESSION['password']=$pass;
-        header("location:logged.php");
-    }
-    else
-    {
-      echo "<script>alert('Incorrect')</script>";
-    }
-}
-?>
-        <?php
-
-        
-        // if($_SERVER['REQUEST_METHOD']=='POST'){
-        // if (isset($_POST['submit']))
-        // {
-        // $email = $_POST['email'];
-        // $password = $_POST['password'];
-        // //$sql = "select * from suma where email = '".$email."' and password = '".$password."'";
-        // $sql = " select * from 'accounts' where email = '$email' and password = '$password' ";
-        // $result=mysqli_query($sql, $conn);
-        // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-        // $count = mysqli_num_rows($result);
-        // if($count==1)
-        // {
-        //   header("location: logged.php");
-        // }
-        // else
-        // {
-        //   echo "<script>
-        //         alert('failed login try again!')
-        //         </script>";
-        //}
-        // if(mysql_num_rows($result)==1){
-        //   echo "logged in";
-        //   exit();
-        // } else {
-        //   echo "no log-in";
-        //   exit();
-       //// }
-        // $stmt = $conn->prepare("insert into suma(Email, Password) values(?,?) ");
-        // $stmt -> bind_param("ss",$Email,$Password);
-        // $stmt -> execute();
-
-        // $SELECT = "SELECT Email from suma where Email = ? Limit 1";
-        // $INSERT = "INSERT Into suma (Email, Password) values(?,?)";
-        
-        // $result = $conn-> query($stmt);
-        // $stmt->bind_param("s",$Email);
-        // $stmt_result = $stmt->get_result();
-        // if($stmlt_result->num_rows > 0){
-        // $data = $stmlt_result->fetch_assoc();
-        // if($data['Password'] === $Password){
-        // echo "<h2>Login Successful</h2>";
-        // }
-        // } else {
-        //  echo "<h2>Invalid Email or Password! Try Again.</h2>";
-        // }
-        // {
-        // }
-        
-
-      ?>
-
       </div>
     </div>
     </div>

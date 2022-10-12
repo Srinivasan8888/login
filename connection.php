@@ -9,9 +9,10 @@ $conn = new mysqli($host,$user,$password,$db, 3308);
 
 if($conn-> connect_error)
 {
-    die("connection failed" .$conn->connect_error);
+    die("" .$conn->connect_error);
+    echo "<script>alert('connection failed to database! Try again.')</script>";
 } else 
 {
-    echo "1";
+    
 }
 ?>
