@@ -1,5 +1,7 @@
 <?php
-require "connection.php";
+include_once("connection.php");
+session_start();
+//require "connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -11,7 +13,7 @@ require "connection.php";
 
     <style>
 
-        /* Google Font Link */
+        /* Google Font Link */s
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
@@ -257,46 +259,71 @@ h2, h4{
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="email" name="Email" placeholder="Enter your email" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="Password" placeholder="Enter your password" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
               </div>
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
-                <input name="submit" type="submit" value="Sumbit">
+                <input name="submit" type="submit" value="login">
               </div>
               <div class="text sign-up-text">Don't have an account? <span>Sigup now</span></div>
             </div>
         </form>
         
+<?php
+        if(isset($_POST['submit']))
+{
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $query = "SELECT * FROM accounts WHERE email ='".$email."' AND password ='".$password."'";
+    $result = mysqli_query($conn, $query);
+    if(mysqli_num_rows($result)==1)
+    {
+      echo "<script>alert('logged-in')</script>";
+        session_start();
+        $_SESSION['email']=$email;
+        $_SESSION['password']=$pass;
+        header("location:logged.php");
+    }
+    else
+    {
+      echo "<script>alert('Incorrect')</script>";
+    }
+}
+?>
         <?php
 
-        mysql_select_db($db);
-        if (server_request($_POST["submit"])){
-        $Email = $_POST['Email'];
-        $Password = $_POST['Password'];
-        $sql = "select * from suma where username = '$Email' and password = '$Password'";
-        $result=mysqli_query($sql,$conn);
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $count = mysqli_num_rows($result);
-        if($count=1){
-          header("Location: logged.html");
-        }
-        else{
-          echo '<script>
-                window.location.href = "index.php";
-                alert("failed login try again!")
-                </script>';
-        }
+        
+        // if($_SERVER['REQUEST_METHOD']=='POST'){
+        // if (isset($_POST['submit']))
+        // {
+        // $email = $_POST['email'];
+        // $password = $_POST['password'];
+        // //$sql = "select * from suma where email = '".$email."' and password = '".$password."'";
+        // $sql = " select * from 'accounts' where email = '$email' and password = '$password' ";
+        // $result=mysqli_query($sql, $conn);
+        // $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        // $count = mysqli_num_rows($result);
+        // if($count==1)
+        // {
+        //   header("location: logged.php");
+        // }
+        // else
+        // {
+        //   echo "<script>
+        //         alert('failed login try again!')
+        //         </script>";
+        //}
         // if(mysql_num_rows($result)==1){
         //   echo "logged in";
         //   exit();
         // } else {
         //   echo "no log-in";
         //   exit();
-        }
+       //// }
         // $stmt = $conn->prepare("insert into suma(Email, Password) values(?,?) ");
         // $stmt -> bind_param("ss",$Email,$Password);
         // $stmt -> execute();
@@ -319,7 +346,7 @@ h2, h4{
         // }
         
 
-        ?>
+      ?>
 
       </div>
     </div>
