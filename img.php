@@ -2,20 +2,9 @@
 include "connection.php";  
 
 //$sql = "SELECT * FROM images ORDER BY id DESC";
-$sql = "SELECT image_url FROM images ORDER BY id";
-$res = mysqli_query($conn,  $sql);
-
-if (mysqli_num_rows($res) > 0) {
-  while ($img = mysqli_fetch_assoc($res)) 
-  
-  { 
-?> 
-   <div class="alb">
-      <img src="uploads/" width="100", height="100"<?php $img['image_url'];?>>
-   </div>
 
 
-<?php } }?>
+?>
 
 <!DOCTYPE html>
 
@@ -58,8 +47,31 @@ if (mysqli_num_rows($res) > 0) {
 
     <button type="button" class="btn btn-primary" onClick="location.href='logged.php'">upload page</button>
     
-               
+   <?php
+   
+   $sql = "SELECT * FROM images ORDER BY id";
+   $res = mysqli_query($conn,  $sql);
+   
+   // $img = $img["image_url"];
+   // $img = base64_encode($img);
+   // $ext = pathinfo($name, PATHINFO_EXTENSION);
+   // echo "<img src='data:upload/" .$ext.";base64,".$img."'/>";
+
+   if (mysqli_num_rows($res) > 0) {
+      while ($img = mysqli_fetch_assoc($res)) 
+  
+   { 
+   ?> 
+   <div class="alb">
+      <img src="uploads/<?=$img['image_url'];?>">
+   </div>
+
+
+<?php } }
+
+   ?>
                
     </body>
 
 </html>
+

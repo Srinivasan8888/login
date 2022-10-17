@@ -4,9 +4,9 @@ session_start();
 
 if(isset($_POST['submit']) && isset($_FILES['upload'])){
    
-    echo "<pre>";
-    print_r($_FILES['upload']);
-    echo "</pre>";
+    // echo "<pre>";
+    // print_r($_FILES['upload']);
+    // echo "</pre>";
 
     $name       = $_FILES['upload']['name'];
     $tmp_name   = $_FILES['upload']['tmp_name'];
@@ -37,7 +37,7 @@ if(isset($_POST['submit']) && isset($_FILES['upload'])){
             mysqli_query($conn, $query);
             //$er = "file uploaded";
             //header("Location: logged.php?error=$er");
-            //header("Location: img.php");
+            header("Location: img.php");
 
         }else{
                 //echo "<script>alert('not a valid file type.')</script>";
