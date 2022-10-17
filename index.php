@@ -4,37 +4,36 @@ include_once("connection.php");
        
 if(isset($_POST['submit']))
 {
-    $email = $_POST["email"];
-    $plaintext = $_POST["password"];
-    //$plaintext = 'admin';
-    $password = '3sc3RLrpd17';
+    $cemail = $_POST["email"];
+    $cpassword = $_POST["password"]; 
+    $password = '3jd974hr89h';
     $method = 'aes-256-cbc';
- 
- // Must be exact 32 chars (256 bit)
     $password = substr(hash('sha256', $password, true), 0, 32);
- //echo "Password:" . $password . "\n";
- 
- // IV must be exact 16 chars (128 bit)
+
+    //encryption for password
     $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
- 
- // av3DYGLkwBsErphcyYp+imUW4QKs19hUnFyyYcXwURU=
-    $encrypted = base64_encode(openssl_encrypt($plaintext, $method, $password, OPENSSL_RAW_DATA, $iv));
- 
-    $query = "SELECT * FROM accounts WHERE email ='".$email."' AND password ='".$encrypted."'";
+    $cpassencrypt = base64_encode(openssl_encrypt($cpassword, $method, $password, OPENSSL_RAW_DATA, $iv));
+    
+    //encryption for mail
+    $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
+    $cmailencrypt = base64_encode(openssl_encrypt($cemail, $method, $password, OPENSSL_RAW_DATA, $iv));
+      
+    $query = "SELECT * FROM accounts WHERE email ='".$cmailencrypt."' AND password ='".$cpassencrypt."'";
     $result = mysqli_query($conn, $query);
     if(mysqli_num_rows($result)==1)
     {
         
         //echo "<script>alert('logged-in')</script>";       
-        $_SESSION['email']=$email;
-        $_SESSION['password']=$encrypted;
+        $_SESSION['email']=$cmailencrypt;
+        $_SESSION['password']=$cpassencrypt;
         //echo "entering";
         header("Location: logged.php");
         
     }
     else
     {
-      header("Location: https://www.google.com");
+      echo "<script>alert('incorrect details')</script>"; 
+      header("Location: index.php");
     }
 }
 

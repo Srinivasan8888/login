@@ -1,6 +1,6 @@
 <?php
- $plaintext = 'admin';
- $password = '3sc3RLrpd17';
+ $plaintext = 'srini@gmail.com';
+ $password = '3jd974hr89h';
  $method = 'aes-256-cbc';
  
  // Must be exact 32 chars (256 bit)

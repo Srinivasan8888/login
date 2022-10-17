@@ -13,6 +13,6 @@ if($conn-> connect_error)
     echo "<script>alert('connection failed to database! Try again.')</script>";
 } else 
 {
-    
+    echo "";
 }
-?>
+?> 
