@@ -17,6 +17,7 @@ include_once("db_conn.php") ?>
     </style>
 </head>
 <body>
+    <div id="content">
     <table class = "table table-dark" id="table"
     style="width:100%;"
     >
@@ -42,42 +43,13 @@ include_once("db_conn.php") ?>
            <td>". $row["City"] ."</td>
            </tr>";
         }?>
-    <button class="btn btn-success" type="button" value="print" onclick=generatePDF()>Generate PDF</button>
-    <script >
-    // var doc = new jsPDF();
-    // var specialElementHandlers = {
-    //     '#editor': function (element, renderer) {
-    //         return true;
-    //     }
-    // };
-
-    // $('#cmd').click(function () {
-    //     doc.fromHTML($('#content').html(), 15, 15, {
-    //         'width': 170,
-    //             'elementHandlers': specialElementHandlers
-    //     });
-    //     doc.save('sample-file.pdf');
-    // });
-
-        // $(document).ready(funtction($){
-        //     $(document).on('click','btn_print',function(event){
-        //         event.preventDefault();
-        //         var element = document.getElemenetById('container_content');
-        //         //html2pdf().from(element).save();
-        //         //html2pdf().set({filename: js.AutoCode()+'.pdf'}).from(element).save();
-        //         var opt = {
-        //             margin: 1,
-        //             filename: 'pageContent_'+js.AutoCode()+'.pdf',
-        //             image: {type: 'jpeg', quality: 0.98},
-        //             html2canvas: {scale: 2},
-        //             jsPDF: {unit: 'in', format: 'letter',orientation: 'potrait'};
-                    
-        //         }
-        //     });
-        // });
-
-</script>
+    <button id="download" class="btn btn-success" type="button" value="print">Generate PDF</button>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
+    <script src="script.js"></script>
         </tbody>
     </table>
+    </div>
 </body>
 </html>
+
