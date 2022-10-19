@@ -1,7 +1,5 @@
 <?php 
-if(empty($_SESSION)){
-	header("Location : login.php");
-  }
+
 if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 	include "db_conn.php";
 
