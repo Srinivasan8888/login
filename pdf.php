@@ -14,6 +14,7 @@ include_once("db_conn.php") ?>
         table, th, td {
             border: 1px solid black;
         }
+        
     </style>
 </head>
 <body>
@@ -43,13 +44,14 @@ include_once("db_conn.php") ?>
            <td>". $row["City"] ."</td>
            </tr>";
         }?>
-    <button id="download" class="btn btn-success" type="button" value="print">Generate PDF</button>
+    
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.min.js"></script>
     <script src="script.js"></script>
         </tbody>
     </table>
     </div>
+    <button id="download" class="btn btn-success" type="button" value="print">Generate PDF</button>
 </body>
 </html>
 
