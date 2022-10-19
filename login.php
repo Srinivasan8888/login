@@ -1,13 +1,54 @@
+<?php
+session_start();
+include_once("db_conn.php");
+       
+if(isset($_POST['submit']))
+{
+    $cemail = $_POST["email"];
+    $cpassword = $_POST["password"]; 
+    $password = '3jd974hr89h';
+    $method = 'aes-256-cbc';
+    $password = substr(hash('sha256', $password, true), 0, 32);
+
+    //encryption for password
+    $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
+    $cpassencrypt = base64_encode(openssl_encrypt($cpassword, $method, $password, OPENSSL_RAW_DATA, $iv));
+    
+    //encryption for mail
+    $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
+    $cmailencrypt = base64_encode(openssl_encrypt($cemail, $method, $password, OPENSSL_RAW_DATA, $iv));
+      
+    $query = "SELECT * FROM accounts WHERE email ='".$cmailencrypt."' AND password ='".$cpassencrypt."'";
+    $result = mysqli_query($conn, $query);
+    if(mysqli_num_rows($result)==1)
+    {
+        
+        //echo "<script>alert('logged-in')</script>";       
+        $_SESSION['email']=$cmailencrypt;
+        $_SESSION['password']=$cpassencrypt;
+        //echo "entering";
+        header("Location: logged.php");
+        
+    }
+    else
+    {
+      echo "<script>alert('incorrect details')</script>"; 
+      header("Location: index.php");
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        /* Google Font Link */
+
+        /* Google Font Link */s
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
   margin: 0;
@@ -20,7 +61,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #7d2ae8;
+  background-color: rgb(182, 176, 176);
   padding: 30px;
 }
 .container{
@@ -32,7 +73,13 @@ body{
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
   perspective: 2700px;
 }
+h2, h4{
+  position: relative;
+  left: 50px;
+  top:30px;
+}
 .container .cover{
+  color: #9526a9;
   position: absolute;
   top: 0;
   left: 50%;
@@ -43,7 +90,6 @@ body{
   transform-origin: left;
   transform-style: preserve-3d;
 }
-
 .container #flip:checked ~ .cover{
   transform: rotateY(-180deg);
 }
@@ -66,6 +112,8 @@ body{
   height: 100%;
   width: 100%;
   background: #7d2ae8;
+  background-image: url(img/bg.jpg);
+  background-position: 10px;
   opacity: 0.5;
   z-index: 12;
 }
@@ -114,6 +162,7 @@ body{
 }
 .form-content .login-form,
 .form-content .signup-form{
+
   width: calc(100% / 2 - 25px);
 }
 .forms .form-content .title{
@@ -212,7 +261,6 @@ body{
   }
   .form-content .login-form,
   .form-content .signup-form{
-    background-image: url(img/bg.jpg);
     width: 100%;
   }
   .form-content .signup-form{
@@ -226,61 +274,40 @@ body{
   }
 }
 
+
     </style>
 
    </head>
 <body>
-  <div class="container">
+  <div class="container" style="border-radius: 8px;">
+    <div class="cover">
+      <h2>Hello!</h2>
+      <h4>Welcome to Xyma Analytics</h4>
+      <div class="front">
+      </div>
+    </div>
     <div class="forms">
         <div class="form-content">
           <div class="login-form">
-
-            <!-- <div class="title">Login</div>
-          <form action="#">
+            <div class="title">Login</div>
+          <form action="index.php" method="POST">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <input type="email" name="email" placeholder="Enter your email" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" name="password" placeholder="Enter your password" required>
               </div>
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
-                <input type="submit" value="Sumbit">
+                <input name="submit" type="submit" value="login">
               </div>
-              <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
+              <div class="text sign-up-text">Don't have an account? <span>Sigup now</span></div>
             </div>
-        </form> -->
+        </form>
       </div>
-        <div class="signup-form">
-          <div class="title">Signup</div>
-        <form action="#">
-            <div class="input-boxes">
-              <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
-              </div>
-              <div class="button input-box">
-                <input type="submit" value="Sumbit">
-              </div>
-              <div class="text sign-up-text">Already have an account? <label for="flip">Login now</label></div>
-            </div>
-
-            <div class="bg-img">
-
-            </div>
-      </form>
-    </div>
     </div>
     </div>
   </div>
