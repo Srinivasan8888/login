@@ -51,7 +51,11 @@ include_once("db_conn.php") ?>
         </tbody>
     </table>
     </div>
-    <button id="download" class="btn btn-success" type="button" value="print">Generate PDF</button>
+    <!-- <button id="download" class="btn btn-success" type="button" value="print">Generate PDF</button> -->
+    <form method="post" action="tcpdf.php">
+    <button class="btn btn-success">Generate PDF</button>
+    </form>   
+
 </body>
 </html>
 
