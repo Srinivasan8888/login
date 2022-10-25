@@ -1,9 +1,9 @@
 <?php
-session_start();
-if(!isset($_SESSION['ID'])){
-	header("Location : login.php");
-	die();
-  }
+// session_start();
+// if(!isset($_SESSION['ID'])){
+// 	header("Location : login.php");
+// 	die();
+//   }
 ?>
 
 
@@ -41,8 +41,8 @@ if(!isset($_SESSION['ID'])){
 				  class="btn btn-outline-primary">
 
 				  <button a href= "view.php" type="button" onclick="window.location.href='view.php'" class="btn btn-primary">view image</button>
-				  <button a href= "view.php" type="button" onclick="window.location.href='pdf.php'" class="btn btn-primary">generate pdf</button>
-
+				  <button a href= "view.php" type="button" onclick="window.location.href='pdf.php'" class="btn btn-primary">View Table</button>
+				  
      	
      </form>
 </body>

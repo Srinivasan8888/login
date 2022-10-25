@@ -25,7 +25,7 @@ class MYPDF extends TCPDF {
     // Colored table
     public function ColoredTable($header,$data) {
         // Colors, line width and bold font
-        $this->SetFillColor(255, 0, 0);
+        $this->SetFillColor(33, 37, 41);
         $this->SetTextColor(255);
         $this->SetDrawColor(128, 0, 0);
         $this->SetLineWidth(0.3);

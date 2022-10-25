@@ -1,8 +1,8 @@
 <?php include "db_conn.php"; 
 
-if(empty($_SESSION)){
-	header("Location : login.php");
-  }
+// if(empty($_SESSION)){
+// 	header("Location : login.php");
+//   }
   
 
 ?>
