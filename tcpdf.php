@@ -1,11 +1,24 @@
 <?php
-
-
 require_once('tcpdf/tcpdf.php');
+
 
 class MYPDF extends TCPDF {
 
-    // Load table data from file
+    public function Header(){
+        $image_file = K_PATH_IMAGES.'logo.png';
+        $this->Image($image_file, 15, 10, 22, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        // Set font
+    }
+
+    public function Footer(){
+
+        $this->SetY(-15);
+        // Set font
+        $this->SetFont('helvetica', 'I', 8);
+        // Page number
+        $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+    }
+
     public function LoadData() {
         
         // $lines = file($file);
@@ -24,6 +37,8 @@ class MYPDF extends TCPDF {
 
     // Colored table
     public function ColoredTable($header,$data) {
+
+        //$pdf->Image('images/logo.png', 15, 140, 75, 113, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
         // Colors, line width and bold font
         $this->SetFillColor(33, 37, 41);
         $this->SetTextColor(255);
@@ -60,10 +75,10 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('');
-$pdf->SetTitle('');
-$pdf->SetSubject('');
-$pdf->SetKeywords('');
+$pdf->SetAuthor('Srinivasan');
+$pdf->SetTitle('Xyma Analytics');
+$pdf->SetSubject('Sample document');
+$pdf->SetKeywords('Xyma');
 
 // set default header data
 $pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
