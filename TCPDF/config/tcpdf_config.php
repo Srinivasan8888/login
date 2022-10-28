@@ -69,7 +69,7 @@
  * Deafult image logo used be the default Header() method.
  * Please set here your own logo or an empty string to disable it.
  */
-//define ('PDF_HEADER_LOGO', 'logo.png');
+define ('PDF_HEADER_LOGO', '/images/logo.png');
 
 /**
  * Header logo image width in user units.
@@ -114,7 +114,7 @@ define ('PDF_HEADER_TITLE', 'Sample Data');
 /**
  * Header description string.
  */
-define ('PDF_HEADER_STRING', "www.xyma.in");
+define ('PDF_HEADER_STRING', "Srinivasan");
 
 /**
  * Document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch].

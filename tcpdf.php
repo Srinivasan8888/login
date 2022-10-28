@@ -1,102 +1,33 @@
 <?php
 require_once('tcpdf/tcpdf.php');
 
+$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-class MYPDF extends TCPDF {
-
-    public function Header(){
-        $image_file = K_PATH_IMAGES.'logo.png';
-        $this->Image($image_file, 15, 10, 22, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        // Set font
-    }
-
-    public function Footer(){
-
-        $this->SetY(-15);
-        // Set font
-        $this->SetFont('helvetica', 'I', 8);
-        // Page number
-        $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
-    }
-
-    public function LoadData() {
-        
-        // $lines = file($file);
-        // $data = array();
-        // foreach($lines as $line) {
-        //     $data[] = explode(';', chop($line));
-        // }
-        // return $data;
-
-        //require_once('pdf.php');
-        include 'db_conn.php';
-        $sql = "SELECT * FROM `employee`";
-        $result = $conn->query($sql);
-        return $result;
-    }
-
-    // Colored table
-    public function ColoredTable($header,$data) {
-
-        //$pdf->Image('images/logo.png', 15, 140, 75, 113, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
-        // Colors, line width and bold font
-        $this->SetFillColor(33, 37, 41);
-        $this->SetTextColor(255);
-        $this->SetDrawColor(128, 0, 0);
-        $this->SetLineWidth(0.3);
-        $this->SetFont('', 'B');
-        // Header
-        $w = array(20, 40, 50, 25);
-        $num_headers = count($header);
-        for($i = 0; $i < $num_headers; ++$i) {
-            $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
-        }
-        $this->Ln();
-        // Color and font restoration
-        $this->SetFillColor(224, 235, 255);
-        $this->SetTextColor(0);
-        $this->SetFont('');
-        // Data
-        $fill = 0;
-        foreach($data as $row) {
-            $this->Cell($w[0], 6, $row['Id'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row['Name'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, $row['Phone_No'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[3], 6, $row['City'], 'LR', 0, 'L', $fill);
-            $this->Ln();
-            $fill=!$fill;
-        }
-        $this->Cell(array_sum($w), 0, '', 'T');
-    }
-}
-
-// create new PDF document
-$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
 // set document information
-$pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Srinivasan');
-$pdf->SetTitle('Xyma Analytics');
-$pdf->SetSubject('Sample document');
-$pdf->SetKeywords('Xyma');
+$pdf->setCreator(PDF_CREATOR);
+$pdf->setAuthor('Nicola Asuni');
+$pdf->setTitle('TCPDF Example 015');
+$pdf->setSubject('TCPDF Tutorial');
+$pdf->setKeywords('TCPDF, PDF, example, test, guide');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
+$pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
 $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
 
 // set default monospaced font
-$pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+$pdf->setDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-$pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
-$pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
-$pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+$pdf->setMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+$pdf->setHeaderMargin(PDF_MARGIN_HEADER);
+$pdf->setFooterMargin(PDF_MARGIN_FOOTER);
 
 // set auto page breaks
-$pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+$pdf->setAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
@@ -109,23 +40,154 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
 
 // ---------------------------------------------------------
 
+// Bookmark($txt, $level=0, $y=-1, $page='', $style='', $color=array(0,0,0))
+
 // set font
-$pdf->SetFont('helvetica', '', 12);
+
 
 // add a page
+
+
+
+// remove default header/footer
+// $pdf->setPrintHeader(false);
+// $pdf->setPrintFooter(false);
+
+// // set margins
+// // $pdf->SetMargins(0, 0, 0, false);
+
+// // set auto page breaks false
+// $pdf->SetAutoPageBreak(false, 0);
+
+// // add a page
 $pdf->AddPage();
 
-// column titles
-$header = array('Id', 'Name', 'Mobile No', 'City');
+// // Display image on full page
+// $pdf->Image('bg2.jpg', 0, 0, 210, 297, 'JPG', '', '', true, 200, '', false, false, 0, false, false, true);
 
-// data loading
-$data = $pdf->LoadData('');
+$bMargin = $pdf->getBreakMargin();
+// get current auto-page-break mode
+$auto_page_break = $pdf->getAutoPageBreak();
+// disable auto-page-break
+$pdf->SetAutoPageBreak(false, 0);
+// set bacground image
+$img_file = K_PATH_IMAGES.'bg2.jpg';
+$pdf->Image($img_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0);
+// restore auto-page-break status
+$pdf->SetAutoPageBreak($auto_page_break, $bMargin);
+// set the starting point for the page content
+$pdf->setPageMark();
 
-// print colored table
-$pdf->ColoredTable($header, $data);
+//Close and output PDF document
 
+
+//     $pdf->AddPage();
+// set a bookmark for the current position
+// $pdf->Bookmark('Chapter 1', 0, 0, '', 'B', array(0,64,128));
+
+// // print a line using Cell()
+// $pdf->Cell(0, 10, 'Chapter 1', 0, 1, 'L');
+
+// $pdf->setFont('times', 'I', 14);
+// $pdf->Write(0, 'You can set PDF Bookmarks using the Bookmark() method.
+// You can set PDF Named Destinations using the setDestination() method.');
+
+// $pdf->setFont('times', '', 9);
+
+// add other pages and bookmarks
+
+$pdf->AddPage();
+
+$html = '<div style="text-align:center; line-height:60px;">PERSONAL INFORMATION</div><br/>';
+$pdf->writeHTML($html, true, false, true, false, '');
+$tbl = '<br><table border="1" cellpadding="8">
+<tr>
+<td style="padding: 10px">Name</td>
+<td style="padding: 10px">Srinivasan</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>srinivasanr.org.in</td>
+</tr>
+<tr>
+<td>Customer Id</td>
+<td>XYMA1001</td>
+</tr>
+<tr>
+<td>Contact No</td>
+<td>808-234-7584</td>
+</tr>
+</table><br/>';
+$pdf->writeHTML($tbl, true, false, true, false, 'C');
 // ---------------------------------------------------------
+$html = '<div style="text-align:center; line-height:60px;">A SSET INFORMATION</div><br/>';
+$pdf->writeHTML($html, true, false, true, false, '');
+$tbl1 = '<br><table border="1" cellpadding="8">
+<tr>
+<th>A sset Type</th>
+<th>Heater Pipe</th>
+</tr>
+<tr>
+<td>A sset Location</td>
+<td>Furnace</td>
+</tr>
+<tr>
+<td>Total Sensors</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Temperature Unit</td>
+<td><span>&#176;</span>C</td>
+</tr>
+<tr>
+<td>Report Generated On</td>
+<td>Date to be inserted</td>
+</tr>
+</table><br/>';
+$pdf->writeHTML($tbl1, true, false, true, false, 'C');
 
-// close and output PDF document
-$pdf->Output('report.pdf', 'I');
+
+$txt = <<<EOD
+DISCLAIMER
+EOD;
+$pdf->Write(80, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+$txt = <<<EOD
+The information contained in these documents is confidential, privileged and only for the information of the intended recipient and may not be used, published or redistributed without the prior written consent of Xyma Analytics Pvt Ltd.
+EOD;
+$pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+// $p = '<div style="text-align:center; height: 340px">DISCLAIMER</div>';
+// $pdf->writeHTML($p, true, false, false, false, 'C');
+
+
+
+$pdf->AddPage();
+
+
+$pdf->AddPage();
+
+$txt = <<<EOD
+<---------------This Page is Intentionally Left Blank--------------->
+EOD;
+$pdf->Write(80, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+$txt = <<<EOD
+DISCLAIMER
+EOD;
+$pdf->Write(40, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+$txt = <<<EOD
+The information contained in these documents is confidential, privileged and only for the information of the intended recipient and may not be used, published or redistributed without the prior written consent of Xyma Analytics Pvt Ltd.
+EOD;
+$pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+$txt = <<<EOD
+<---------------This Page is Intentionally Left Blank--------------->
+EOD;
+$pdf->Write(100, $txt, '', 0, 'C', true, 0, false, false, 0);
+
+$pdf->Output('example_015.pdf', 'I');
+//============================================================+
+// END OF FILE
+//============================================================+
 
