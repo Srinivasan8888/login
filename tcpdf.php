@@ -1,88 +1,26 @@
 <?php
 require_once('tcpdf/tcpdf.php');
 
-class MYPDF extends TCPDF {
-
+class MYPDF extends TCPDF{
+    
     public function Header(){
-        $image_file = K_PATH_IMAGES.'logo.png';
-        $this->Image($image_file, 15, 10, 22, '', 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-        // Set font
-    }
-
-    public function Footer(){
-
-        $this->SetY(-15);
-        // Set font
-        $this->SetFont('helvetica', 'I', 8);
-        // Page number
-        $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
-    }
-    
-
-    public function LoadData() {
-        
-        // $lines = file($file);
-        // $data = array();
-        // foreach($lines as $line) {
-        //     $data[] = explode(';', chop($line));
-        // }
-        // return $data;
-
-        //require_once('pdf.php');
-        include 'db_conn.php';
-        $sql = "SELECT * FROM `employee`";
-        $result = $conn->query($sql);
-        return $result;
-    }
-    
-
-    // Colored table
-    public function ColoredTable($header,$data) {
-
-        //$pdf->Image('images/logo.png', 15, 140, 75, 113, 'PNG', '', '', true, 150, '', false, false, 1, false, false, false);
-        // Colors, line width and bold font
-        $this->SetFillColor(33, 37, 41);
-        $this->SetTextColor(255);
-        $this->SetDrawColor(128, 0, 0);
-        $this->SetLineWidth(0.3);
-        $this->SetFont('', 'B');
-        // Header
-        $w = array(20, 40, 50, 25);
-        $num_headers = count($header);
-        for($i = 0; $i < $num_headers; ++$i) {
-            $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
-        }
-        $this->Ln();
-        // Color and font restoration
-        $this->SetFillColor(224, 235, 255);
-        $this->SetTextColor(0);
-        $this->SetFont('');
-        // Data
-        $fill = 0;
-        foreach($data as $row) {
-            $this->Cell($w[0], 6, $row['Id'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row['Name'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, $row['Phone_No'], 'LR', 0, 'L', $fill);
-            $this->Cell($w[3], 6, $row['City'], 'LR', 0, 'L', $fill);
-            $this->Ln();
-            $fill=!$fill;
-        }
-        $this->Cell(array_sum($w), 0, '', 'T');
-    }
-    
+    $this->SetFont('helvetica', 'B', 20);
+    // Title to right allignment
+    $this->Cell(0, 15, '<< Header TITLE >>', 0, false, 'R', 0, '', 0, false, 'M', 'M');
 }
-
+}
 
 
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
-
+$pdf->SetPrintHeader(true);
+$pdf->SetPrintFooter(true); 
 // set document information
 $pdf->setCreator(PDF_CREATOR);
-$pdf->setAuthor('Nicola Asuni');
-$pdf->setTitle('TCPDF Example 015');
-$pdf->setSubject('TCPDF Tutorial');
-$pdf->setKeywords('TCPDF, PDF, example, test, guide');
+$pdf->setAuthor('');
+$pdf->setTitle('');
+$pdf->setSubject('');
+$pdf->setKeywords('');
 
 // set default header data
 $pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
@@ -111,6 +49,7 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
     $pdf->setLanguageArray($l);
 }
 
+
 // bg image properties
 $pdf->AddPage();
 
@@ -119,6 +58,8 @@ $bMargin = $pdf->getBreakMargin();
 $auto_page_break = $pdf->getAutoPageBreak();
 // disable auto-page-break
 $pdf->SetAutoPageBreak(false, 0);
+
+
 // set bacground image
 $img_file = K_PATH_IMAGES.'bg2.jpg';
 $pdf->Image($img_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0);
@@ -130,6 +71,7 @@ $pdf->setPageMark();
 
 // table starts from here
 $pdf->AddPage();
+
 
 $html = '<div style="text-align:center; line-height:60px;">PERSONAL INFORMATION</div><br/>';
 $pdf->writeHTML($html, true, false, true, false, '');
@@ -189,25 +131,8 @@ $txt = <<<EOD
 The information contained in these documents is confidential, privileged and only for the information of the intended recipient and may not be used, published or redistributed without the prior written consent of Xyma Analytics Pvt Ltd.
 EOD;
 $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
-// $p = '<div style="text-align:center; height: 340px">DISCLAIMER</div>';
-// $pdf->writeHTML($p, true, false, false, false, 'C');
 
-// set font
-// $pdf->SetFont('helvetica', '', 12);
-
-// $pdf->SetFont('helvetica', '', 12);
-
-// // add a page
 $pdf->AddPage();
-
-// column titles
-// $header = array('Id', 'Name', 'Mobile No', 'City');
-
-// // data loading
-// $data = $pdf->LoadData('');
-
-// // print colored table
-// $pdf->ColoredTable($header, $data);
 
 $html = '<table border="2" cellpadding="8">';
 $html .="<tr>
