@@ -12,6 +12,7 @@ class MYPDF extends TCPDF {
         // Set font
         $this->SetFont('helvetica', '', 8);
         // Title
+        date_default_timezone_set('Asia/Calcutta');
         $tDate = date("F j, Y, g:i a");
         $html = '<p>W: www.xyma.in M: info@xyma.in</p>';
         $this->writeHTML($html, true, false, false, false, 'R');
@@ -37,19 +38,14 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 003');
-$pdf->SetSubject('TCPDF Tutorial');
-$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+$pdf->SetAuthor('');
+$pdf->SetTitle('');
+$pdf->SetSubject('');
+$pdf->SetKeywords('');
 
 $pdf->SetPrintHeader(true);
 $pdf->SetPrintFooter(true); 
-// set document information
-$pdf->setCreator(PDF_CREATOR);
-$pdf->setAuthor('');
-$pdf->setTitle('');
-$pdf->setSubject('');
-$pdf->setKeywords('');
+
 
 // set default header data
 $pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
