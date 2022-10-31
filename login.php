@@ -66,6 +66,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(120deg,#2980b9, #8e44ad);
   background-color: rgb(182, 176, 176);
   padding: 30px;
 }
@@ -117,7 +118,7 @@ h2, h4{
   height: 100%;
   width: 100%;
   background: #7d2ae8;
-  background-image: url(img/bg.jpg);
+  background-image: url(images/bg.jpg);
   background-position: 10px;
   opacity: 0.5;
   z-index: 12;

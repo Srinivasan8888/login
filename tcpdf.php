@@ -1,17 +1,46 @@
 <?php
 require_once('tcpdf/tcpdf.php');
 
-class MYPDF extends TCPDF{
-    
-    public function Header(){
-    $this->SetFont('helvetica', 'B', 20);
-    // Title to right allignment
-    $this->Cell(0, 15, '<< Header TITLE >>', 0, false, 'R', 0, '', 0, false, 'M', 'M');
-}
-}
+// Extend the TCPDF class to create custom Header and Footer
+class MYPDF extends TCPDF {
 
+    //Page header
+    public function Header() {
+        // Logo
+        $image_file = K_PATH_IMAGES.'logo1.jpg';
+        $this->Image($image_file, 10, 5, 25, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+        // Set font
+        $this->SetFont('helvetica', '', 8);
+        // Title
+        $tDate = date("F j, Y, g:i a");
+        $html = '<p>W: www.xyma.in M: info@xyma.in</p>';
+        $this->writeHTML($html, true, false, false, false, 'R');
+        $this->Cell(160.5, 4, 'Report Generated on: '.$tDate, 0, 0, 'R', 0, '', 0, false, 'T', 'M');       
+        
+        // $html ='<hr>';
+        // $html ='<hr>';
+        // $this->writeHTML($html, true, false, false, false, ''); 
+    }
 
-$pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+    // Page footer
+    public function Footer() {
+        // Position at 15 mm from bottom
+        $this->SetY(-15);
+        // Set font
+        $this->SetFont('helvetica', 'I', 8);
+        // Page number
+        $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
+    }}
+
+// create new PDF document
+$pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+// set document information
+$pdf->SetCreator(PDF_CREATOR);
+$pdf->SetAuthor('Nicola Asuni');
+$pdf->SetTitle('TCPDF Example 003');
+$pdf->SetSubject('TCPDF Tutorial');
+$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
 $pdf->SetPrintHeader(true);
 $pdf->SetPrintFooter(true); 
@@ -49,7 +78,6 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
     $pdf->setLanguageArray($l);
 }
 
-
 // bg image properties
 $pdf->AddPage();
 
@@ -67,9 +95,8 @@ $pdf->Image($img_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false,
 $pdf->SetAutoPageBreak($auto_page_break, $bMargin);
 // set the starting point for the page content
 $pdf->setPageMark();
-
-
-// table starts from here
+// ---------------------------------------------------------
+//table starts from here
 $pdf->AddPage();
 
 
@@ -95,7 +122,7 @@ $tbl = '<br><table border="1" cellpadding="8">
 </table><br/>';
 $pdf->writeHTML($tbl, true, false, true, false, 'C');
 // ---------------------------------------------------------
-$html = '<div style="text-align:center; line-height:60px;">A SSET INFORMATION</div><br/>';
+$html = '<div style="text-align:center; line-height:60px;">ASSET INFORMATION</div><br/>';
 $pdf->writeHTML($html, true, false, true, false, '');
 $tbl1 = '<br><table border="1" cellpadding="8">
 <tr>
@@ -136,11 +163,11 @@ $pdf->AddPage();
 
 $html = '<table border="2" cellpadding="8">';
 $html .="<tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Phone No</th>
-        <th>City </th>
-        </tr>'";
+        <td><strong>Id</strong></td>
+        <td><strong>Name</strong></td>
+        <td><strong>Phone No</strong></td>
+        <td><strong>City</strong></td>
+        </tr>";
 
 
 include 'db_conn.php';
@@ -193,4 +220,3 @@ $pdf->Output('example_015.pdf', 'I');
 //============================================================+
 // END OF FILE
 //============================================================+
-

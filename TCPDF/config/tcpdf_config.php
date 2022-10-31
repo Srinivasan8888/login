@@ -1,4 +1,5 @@
 <?php
+
 //============================================================+
 // File name   : tcpdf_config.php
 // Begin       : 2004-06-11
@@ -114,7 +115,7 @@ define ('PDF_HEADER_TITLE', '');
 /**
  * Header description string.
  */
-define ('PDF_HEADER_STRING', "W: www.xyma.in M: info@xyma.in");
+define ('PDF_HEADER_STRING', "");
 
 /**
  * Document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch].
