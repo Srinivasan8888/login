@@ -53,7 +53,41 @@ include_once("db_conn.php") ?>
     </div>
     <!-- <button id="download" class="btn btn-success" type="button" value="print">Generate PDF</button> -->
     <form method="post" action="tcpdf.php">
-    <button class="btn btn-success">Generate PDF</button>
+    <button class="btn btn-success">Generate employee PDF</button>
+
+    <input type="button" onclick="window.location.href='tcpdf1.php';" class="btn btn-success" value="tcpdf 1"/>
+
+    <input type="button" onclick="window.location.href='tcpdf2.php';" class="btn btn-success" value="tcpdf 2"/>
+
+    <input type="button" onclick="window.location.href='tcpdf3.php';" class="btn btn-success" value="tcpdf 3"/>
+
+    <input type="button" onclick="window.location.href='tcpdf4.php';" class="btn btn-success" value="tcpdf 4"/>
+    
+    <input type="button" onclick="window.location.href='tcpdf5.php';" class="btn btn-success" value="tcpdf 5"/>
+
+    <input type="button" onclick="window.location.href='tcpdf6.php';" class="btn btn-success" value="tcpdf 6"/>
+
+    <input type="button" onclick="window.location.href='tcpdf7.php';" class="btn btn-success" value="tcpdf 7"/>
+
+    <input type="button" onclick="window.location.href='tcpdf8.php';" class="btn btn-success" value="tcpdf 8"/>
+
+    <input type="button" onclick="window.location.href='tcpdf9.php';" class="btn btn-success" value="tcpdf 9"/>
+
+    <input type="button" onclick="window.location.href='tcpdf10.php';" class="btn btn-success" value="tcpdf 10"/>
+
+    <input type="button" onclick="window.location.href='tcpdf11.php';" class="btn btn-success" value="tcpdf 11"/>
+
+    <input type="button" onclick="window.location.href='tcpdf12.php';" class="btn btn-success" value="tcpdf 12"/>
+
+    <input type="button" onclick="window.location.href='tcpdf13.php';" class="btn btn-success" value="tcpdf 13"/>
+
+    <input type="button" onclick="window.location.href='tcpdf14.php';" class="btn btn-success" value="tcpdf 14"/>
+
+    <input type="button" onclick="window.location.href='tcpdf15.php';" class="btn btn-success" value="tcpdf 15"/>
+
+    <input type="button" onclick="window.location.href='tcpdf16.php';" class="btn btn-success" value="tcpdf 16"/>
+
+
     </form>   
 
 </body>

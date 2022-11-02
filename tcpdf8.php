@@ -1,5 +1,6 @@
 <?php
 require_once('tcpdf/tcpdf.php');
+include 'db_conn.php';
 
 // Extend the TCPDF class to create custom Header and Footer
 class MYPDF extends TCPDF {
@@ -32,6 +33,7 @@ class MYPDF extends TCPDF {
         // Page number
         $this->Cell(0, 10, 'Page '.$this->getAliasNumPage().'/'.$this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
     }}
+    
 
 // create new PDF document
 $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
@@ -73,7 +75,6 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
     require_once(dirname(__FILE__).'/lang/eng.php');
     $pdf->setLanguageArray($l);
 }
-
 // bg image properties
 $pdf->AddPage();
 
@@ -122,11 +123,11 @@ $html = '<div style="text-align:center; line-height:60px;">ASSET INFORMATION</di
 $pdf->writeHTML($html, true, false, true, false, '');
 $tbl1 = '<br><table border="1" cellpadding="8">
 <tr>
-<th>A sset Type</th>
+<th>Asset Type</th>
 <th>Heater Pipe</th>
 </tr>
 <tr>
-<td>A sset Location</td>
+<td>Asset Location</td>
 <td>Furnace</td>
 </tr>
 <tr>
@@ -157,40 +158,62 @@ $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
 
 $pdf->AddPage();
 
-$html = '<table border="2" cellpadding="8">';
-$html .="<tr>
-        <td><strong>Id</strong></td>
-        <td><strong>Name</strong></td>
-        <td><strong>Phone No</strong></td>
-        <td><strong>City</strong></td>
-        </tr>";
+$html = '<table id="Table_id" border="2" cellpadding="8">';
+$html .="
+<tr>
+<th><strong>Id</strong></th>
+<th><strong>S1</strong></th>
+<th><strong>S2</strong></th>
+<th><strong>S3</strong></th>
+<th><strong>S4</strong></th>
+<th><strong>S5</strong></th>
+<th><strong>S6</strong></th>
+<th><strong>S7</strong></th>
+<th><strong>S8</strong></th>
+</tr>";
 
-
-include 'db_conn.php';
-$sql = "SELECT * FROM `employee`";
+$sql = "SELECT Id,S1,S2,S3,S4,S5,S6,S7,S8
+FROM sensor ORDER BY Id ASC";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
+
+        
     {
         $id = $row["Id"];
-        $name = $row["Name"];
-        $phone_no = $row["Phone_No"];
-        $city = $row["City"];
+        $s1 = $row['S1'];
+        $s2 = $row["S2"];
+        $s3 = $row["S3"];
+        $s4 = $row["S4"];
+        $s5 = $row["S5"];
+        $s6 = $row["S6"];
+        $s7 = $row["S7"];
+        $s8 = $row["S8"];
 
-        $html .="<tr>
-        <td>". $id."</td>
-        <td>". $name ."</td>
-        <td>". $phone_no ."</td>
-        <td>". $city ."</td>
+        $html .="
+        <tr>
+        <td>". $id ."</td>
+        <td>". $s1 ."</td>
+        <td>". $s2 ."</td>
+        <td>". $s3 ."</td>
+        <td>". $s4 ."</td>
+        <td>". $s5 ."</td>
+        <td>". $s6 ."</td>
+        <td>". $s7 ."</td>
+        <td>". $s8 ."</td>
+
         </tr>";
     }
 }
 }
+
+
 $html .= '</table>';
+
 $pdf->writeHTML($html, true, false, true, false, '');
 
 
-$pdf->AddPage();
+$pdf->AddPage('P');
 
 $txt = <<<EOD
 <---------------This Page is Intentionally Left Blank--------------->
@@ -212,4 +235,5 @@ $txt = <<<EOD
 EOD;
 $pdf->Write(100, $txt, '', 0, 'C', true, 0, false, false, 0);
 
-$pdf->Output('example_015.pdf', 'I');
+$pdf->Output('sample.pdf', 'I');
+?>

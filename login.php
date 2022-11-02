@@ -310,7 +310,7 @@ h2, h4{
               <div class="button input-box">
                 <input name="submit" type="submit" value="login">
               </div>
-              <div class="text sign-up-text">Don't have an account? <span>Sigup now</span></div>
+              <div class="text sign-up-text">Don't have an account? <span>Sign-up now</span></div>
             </div>
         </form>
       </div>
