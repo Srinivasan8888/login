@@ -45,9 +45,8 @@ $pdf->SetTitle('');
 $pdf->SetSubject('');
 $pdf->SetKeywords('');
 
-$pdf->SetPrintHeader(true);
-$pdf->SetPrintFooter(true); 
 
+$pdf->SetPrintHeader(true); 
 
 // set default header data
 $pdf->setHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE, PDF_HEADER_STRING);
@@ -75,25 +74,12 @@ if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
     require_once(dirname(__FILE__).'/lang/eng.php');
     $pdf->setLanguageArray($l);
 }
-$page_format = array(
-    'MediaBox' => array ('llx' => 0, 'lly' => 0, 'urx' => 210, 'ury' => 297),
-    'CropBox' => array ('llx' => 0, 'lly' => 0, 'urx' => 210, 'ury' => 297),
-    'BleedBox' => array ('llx' => 5, 'lly' => 5, 'urx' => 205, 'ury' => 292),
-    'TrimBox' => array ('llx' => 10, 'lly' => 10, 'urx' => 200, 'ury' => 287),
-    'ArtBox' => array ('llx' => 15, 'lly' => 15, 'urx' => 195, 'ury' => 282),
-    'Dur' => 3,
-    'trans' => array(
-        'D' => 1.5,
-        'S' => 'Split',
-        'Dm' => 'V',
-        'M' => 'O'
-    ),
-    'Rotate' => 90,
-    'PZ' => 1,
-);
 
 // bg image properties
-$pdf->AddPage();
+$pdf->AddPage('L');
+
+$pdf->SetPrintHeader(true);
+$pdf->SetPrintFooter(true); 
 
 $bMargin = $pdf->getBreakMargin();
 // get current auto-page-break mode
@@ -101,18 +87,18 @@ $auto_page_break = $pdf->getAutoPageBreak();
 // disable auto-page-break
 $pdf->SetAutoPageBreak(false, 0);
 
-
 // set bacground image
-$img_file = K_PATH_IMAGES.'bg2.jpg';
-$pdf->Image($img_file, 0, 0, 210, 297, '', '', '', false, 300, '', false, false, 0);
+$img_file = K_PATH_IMAGES.'bg3.jpg';
+$pdf->Image($img_file, 0, 0, 297, 210, '', '', '', false, 300, '', false, false, 0);
 // restore auto-page-break status
 $pdf->SetAutoPageBreak($auto_page_break, $bMargin);
 // set the starting point for the page content
 $pdf->setPageMark();
 // ---------------------------------------------------------
 //table starts from here
-$pdf->AddPage();
-
+$pdf->AddPage('L');
+$pdf->SetPrintHeader(true);
+$pdf->SetPrintFooter(true); 
 
 $html = '<div style="text-align:center; line-height:60px;">PERSONAL INFORMATION</div><br/>';
 $pdf->writeHTML($html, true, false, true, false, '');
@@ -173,12 +159,6 @@ The information contained in these documents is confidential, privileged and onl
 EOD;
 $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
 
-if ($count > 8){
-    $p = "L";
-}
-else{
-    $p = "P";
-}
 $pdf->AddPage('L');
 
 $html = '<table id="Table_id" border="2" cellpadding="8">';
@@ -244,13 +224,11 @@ if ($result->num_rows > 0) {
 }
 }
 
-
 $html .= '</table>';
 
 $pdf->writeHTML($html, true, false, true, false, '');
 
-
-$pdf->AddPage('P');
+$pdf->AddPage('L');
 
 $txt = <<<EOD
 <---------------This Page is Intentionally Left Blank--------------->
@@ -260,7 +238,7 @@ $pdf->Write(80, $txt, '', 0, 'C', true, 0, false, false, 0);
 $txt = <<<EOD
 DISCLAIMER
 EOD;
-$pdf->Write(40, $txt, '', 0, 'C', true, 0, false, false, 0);
+$pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
 
 $txt = <<<EOD
 The information contained in these documents is confidential, privileged and only for the information of the intended recipient and may not be used, published or redistributed without the prior written consent of Xyma Analytics Pvt Ltd.
@@ -270,7 +248,7 @@ $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
 $txt = <<<EOD
 <---------------This Page is Intentionally Left Blank--------------->
 EOD;
-$pdf->Write(100, $txt, '', 0, 'C', true, 0, false, false, 0);
+$pdf->Write(60, $txt, '', 0, 'C', true, 0, false, false, 0);
 
 $pdf->Output('sample.pdf', 'I');
 ?>
