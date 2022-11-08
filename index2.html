@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width, inital-scale=1.0">
+    <title>basic sample page</title>
+    <head>
+         <style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    .container{
+        width: 100%;
+        min-height: 100vh;
+        padding-left: 8%;
+        padding-right: 8%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .navbar{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    .logo{
+        height: auto;
+        width: auto;
+        cursor: pointer;
+        margin: 30px 0;
+        align-items: center;
+    }
+    .menu-icon{
+        width: 25px;
+        cursor: pointer;
+        display: none;
+    }
+    nav{
+        flex: 1;
+        text-align: center;
+    }
+    nav ul li{
+        list-style: none;
+        display: inline-block;
+        margin-right:30px;
+    }
+    nav ul li a{
+        text-decoration: none;
+        color: #000;
+        font-size: 30px;
+    }
+    nav ul li a:hover{
+        color: #ff5ea2
+    }
+    .row{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 100px 0;
+    }
+    .col-1{
+        flex-basis: 40%;
+        position: relative;
+        margin-left: 50px;
+    }
+    .col-1 h2{
+        font-size: 54px;
+    }
+    .col-2 h3{
+        font-size: 30px;
+        color: #707070;
+        font-weight: 100;
+        margin: 20px 0 10px;
+    }
+    .col-1 p{
+        font-size: 16px;
+        color: #b7b7b7;
+        font-weight: 100;
+    }
+    .col-2 h3{
+        margin: 30px 0;
+        font-size: 20px;
+    }
+    button{
+        width: 140px;
+        border: 0px;
+        border-radius: 6px;
+        padding: 12px 10px;
+        color: #fff;
+        background: linear-gradient(to right, #fb5283, #ff3527);
+        cursor: pointer;
+        transition: width 0.5s;
+        outline:none;  
+    }
+    button img{
+        width: 30px;
+        display: none;
+    }
+    button:hover img{
+        display: block;
+    }
+    button:hover{
+        width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .col-1::after{
+        content:'';
+        width: 10px;
+        height: 57%;
+        background: linear-gradient(#fb5283, #ff3527);
+        position: absolute;
+        left: -40px;
+        top: 8px;
+    }
+    .col-2{
+        position: relative;
+        flex-basis: 60%;
+        display: flex;
+        align-items: center;
+    }
+    .col-2 .controller{
+        width: 90%;
+    }
+    .color-box{
+        position: absolute;
+        right: 0;
+        top: 200px;
+        background: linear-gradient(#ff54a2, #ff575a);
+        border-radius: 20px 0 0 20px;
+        height: 40%;
+        width: 80%;
+        z-index: -1;
+        transform: translateX(190px);
+    }
+    .add-btn img{
+        width: 70px;
+        margin-bottom: 75px;
+    }
+    .add-btn{
+        text-align: center;
+        color: #fff;
+        cursor: pointer;
+    }
+    .social-links img{
+        text-align: center;
+    }
+    @media only screen and (max-width:700px){
+    nav ul{
+        width: 100%;
+        background-color: linear-gradient(#ff54a2, #ff575a);
+        position: absolute;
+        top: 75px;
+        right: 0;
+        z-index: 2;
+    }
+    nav ul li{
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    nav ul li a{
+        color: #fff;
+    }
+    .menu-icon{
+        display: block; 
+    }
+    #menu_list{
+        overflow: hidden;
+        transition: 0.5s;
+    }
+    .row{
+        flex-direction: column-reverse;
+        margin: 50px 0;
+    }
+    .col-2{
+        flex-basis: 100%;
+        margin-bottom: 50px;
+    }
+    .col-2 .controller{
+        width: 77%;
+    }
+    .color-box{
+        transform: translateX(75px);
+    }
+    .col-1 {
+        flex-basis: 100%;
+    }
+    .col-2 h2{
+        font-size: 35px;
+    }
+    .col-1 h1{
+        font-size: 35px;
+    }
+    .col-1 h3{
+        font-size: 35px;
+    }}
+</style>
+</head>
+<body>
+<div class="container">
+            <div class="navbar">
+               <img src="images/logo.png" class="logo">
+                <nav>
+                    <ul id="menu_list">
+                        <li><a href="">Products</a></li>
+                        <li><a href="">Company</a></li>
+                        <li><a href="">Carrers</a></li>
+                        <li><a href="">Contact Us</a></li>
+                        <li><a href="">Spotlight</a></li>
+                        <li><a href="">Sign In</a></li>
+                    </ul>
+                </nav>
+                <img src="images/menu3.png" class="menu-icon" onclick="togglemenu()">
+            </div>
+
+            <!-- <div class="row">
+                <div class="col-1">
+                    <h2>PS4 V2<br>Dualshock 4</h2>
+                    <h3>Wireless Controller for PlayStation 4</h3>
+                    <p>(Compatible/Generic)</p>
+                    <h4>$32.50</h4>
+                    <button type="button">Buy Now</button>
+                </div>
+                <div col="col-2">
+                    <img src="images/controller.png" class="controller">
+                    <div class="color-box"></div>
+                    <div class="add-btn">
+                        <img src="images/add.png">
+                        <p><small>Add to Cart</small></p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="social-links">
+                <img src="images/fb.png">
+                <img src="images/tw.png">
+                <img src="images/ig.png">
+            </div> -->
+
+        </div>
+        <script>
+            var menu_list = document.getElementById("menu_list");
+            menu_list.style.maxHeight = "0px";
+            function togglemenu(){
+                if(menu_list.style.maxHeight == "0px")
+                {
+                    menu_list.style.maxHeight = "130px";
+                }
+                else 
+                {
+                    menu_list.style.maxHeight = "0px";
+                }
+            }
+        </script>
+    </body>
+</html>

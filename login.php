@@ -279,11 +279,8 @@ h2, h4{
     display: none;
   }
 }
-
-
-    </style>
-
-   </head>
+</style>
+</head>
 <body>
   <div class="container" style="border-radius: 8px;">
     <div class="cover">
@@ -300,12 +297,13 @@ h2, h4{
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="email" name="email" placeholder="Enter your email" required>
+                <input type="email" name="email" placeholder="Email" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" name="password" placeholder="Enter your password" required>
+                <input type="password" name="password" placeholder="Password" required>
               </div>
+              
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
                 <input name="submit" type="submit" value="login">
