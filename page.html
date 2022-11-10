@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Responsive navbar using only html css</title>
+	<title>Page 1 alpha</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -75,7 +75,7 @@ header{
 	color: var(--text-color);
 	font-size: 1.1rem;
 	font-weight: 500;
-	padding: 5px 0;
+	padding: 1px 0;
 	margin: 0px 30px;
 	transition: all .50s ease;
 }
@@ -110,6 +110,8 @@ header{
 	color: var(--main-color);
 }
 #menu-icon{
+	
+	height: 20px;
 	font-size: 35px;
 	color: var(--text-color);
 	cursor: pointer;
@@ -131,7 +133,33 @@ header{
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
-
+.text1{
+	color:rgb(60, 59, 59);
+	position: relative;
+	bottom: 370px;
+	left: 1100px;
+	font-size: 25px;
+}
+.text2{
+	position: relative;
+	bottom: 370px;
+	left: 1101px;
+	font-size: 25px;
+	color:rgb(0, 0, 0);
+	font-weight: 300;
+}
+.text3{
+	position: relative;
+	bottom: 340px;
+	left: 1200px;
+	font-size: 40px;
+	color:rgb(255, 255, 255);
+	font-weight: 300;
+}
+.text4{
+	position: relative;
+	left: 800px;
+}
 .text {
   color: #f2f2f2;
   font-size: 15px;
@@ -179,6 +207,7 @@ header{
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
+
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
@@ -199,27 +228,66 @@ header{
 	#menu-icon{
 		display: block;
 	}
+
+	@media (max-width: 560px) {
+		.logo{
+			width: 40px;
+			height: 20px;
+		}
+		.slideshow-container{
+			overflow: hidden;
+			position: relative;
+			top: 30px;
+		}
+		.dot{
+			position: relative;
+			bottom: 55px;
+			height: 5px;
+			width: 5px;
+		}
+		
+	}
+
+	@media only screen
+  and (min-device-width : 768px)
+  and (max-device-width : 1024px)
+  and (orientation:landscape) 
+{
+	header{
+		padding-bottom: 3px;
+	}
+		.logo{
+			width: 60px;
+			height: 50px;
+		}
+		.slideshow-container{
+			overflow: hidden;
+			position: relative;
+			top: 90px;
+		}
+	}
+
 	.navbar{
 		position: absolute;
 		top: 100%;
 		right: -100%;
 		width: 270px;
 		height: 29vh;
-		background: var(--main-color);
 		display: flex;
+		background-color: aliceblue;
 		flex-direction: column;
 		justify-content: flex-start;
 		border-radius: 10px;
 		transition: all .50s ease;
 	}
 	.navbar a{
+
 		display: block;
 		margin: 12px 0;
 		padding: 0px 25px;
 		transition: all .50s ease;
 	}
 	.navbar a:hover{
-		color: var(--text-color);
 		transform: translateY(5px);
 	}
 	.navbar a.active{
@@ -245,31 +313,28 @@ header{
 			<li><a href="">Sign In</a></li>
 		</ul>
 		<div class="main">
-			<div class="bx bx-menu" id="menu-icon"></div>
+			<img src="images/menu3.png" class="menus" id="menu-icon"></img>
 		</div>
 	</header>
 	<div class="slideshow-container">
 
 		<div class="mySlides fade">
-		  <div class="numbertext">1 / 4</div>
-		  <img src="images/fimages/qualcom.png" style="width:100%">
-		  <div class="text">Caption Text</div>
-		</div>
-		
-		<div class="mySlides fade">
-		  <div class="numbertext">2 / 4</div>
 		  <img src="images/fimages/shell.png" style="width:100%">
-		  <div class="text">Caption Two</div>
+		  <div class="text1">WATCH LIVE DEMO OF XYMA ANALYTICS</div>
+		  <a class="text2" href="https://startupdemoday.live/">Register Now >> </a>
 		</div>
 		
+		 <div class="mySlides fade">
+			<img src="images/fimages/qualcom.png" style="width:100%"> 
+			<a class="text3" href="https://www.qualcomm.com/company/locations/india/design-in-india-program#2021-startups">Know More >></a>
+		  </div>
+
 		<div class="mySlides fade">
-		  <div class="numbertext">3 / 4</div>
 		  <img src="images/fimages/xymasensor.png" style="width:100%">
-		  <div class="text">Caption Three</div>
+		  <button class="text4">Explore Now >></div>
 		</div>
 		
 		<div class="mySlides fade">
-			<div class="numbertext">4 / 4</div>
 			<img src="images/images/ipams.png" style="width:100%">
 			<div class="text">Caption Four</div>
 		</div>
@@ -279,11 +344,11 @@ header{
 		<br>
 		
 		<div style="text-align:center">
-			<span class="dot" onclick="currentSlide(1)"></span> 
-			<span class="dot" onclick="currentSlide(2)"></span> 
-			<span class="dot" onclick="currentSlide(3)"></span> 
-			<span class="dot" onclick="currentSlide(4)"></span> 
-		  </div>
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+			<span class="dot"></span> 
+		</div>
 	<script>
 
 	let menu = document.querySelector('#menu-icon');
@@ -311,8 +376,8 @@ function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-//   if (n > slides.length) {slideIndex = 1}    
-//   if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
   
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
@@ -322,12 +387,12 @@ function showSlides(n) {
  
 	if (slideIndex > slides.length) {slideIndex = 1}    
 
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
+//   for (i = 0; i < dots.length; i++) {
+//     dots[i].className = dots[i].className.replace(" active", "");
+//   }
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2500);
+  setTimeout(showSlides, 2000);
 }
 
 	</script>
