@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Page 1 alpha</title>
@@ -14,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
-	<style>
+<style>
 		
 *{
 	padding: 0;
@@ -111,15 +112,7 @@ header{
 	font-weight: 500;
 	transition: all .50s ease;
 }
-.user{
-	display: flex;
-	align-items: center;
-}
-.user i{
-	color: var(--main-color);
-	font-size: 28px;
-	margin-right: 7px;
-}
+
 .main a:hover{
 	color: var(--main-color);
 }
@@ -131,15 +124,6 @@ header{
 	cursor: pointer;
 	z-index: 10001;
 	display: none;
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
 }
 
 .active, .dot:hover {
@@ -158,16 +142,7 @@ header{
 	padding: 50px;
 }
 
-.utmapstext1{
-	color:#ffffff;
-	position: absolute;
-}
 
-.productsutmaps{
-	height: 50%;
-	width: 50%;
-	color:#ffffff;
-}
 
 @keyframes fade {
   from {opacity: .4} 
@@ -200,14 +175,15 @@ header{
 	}
 
 	@media (max-width: 560px) {
-		.logo{
-			width: 40px;
-			height: 20px;
-		}
-		.slideshow-container{
+		.body{
 			overflow: hidden;
-			position: relative;
-			top: 30px;
+		}
+		.logo{
+			width: 90px;
+			height: 40px;
+		}
+		.navbar{
+			overflow: hidden;
 		}
 		
 	}
@@ -282,7 +258,7 @@ header{
 		</div>
 	</header>
 
-	<!-- <div class="bx-image">
+	<!-- <div class="img-fluid" width: 200px;">
 		  <img src="images/products/products.png" style="width:100%"> 
 		</div> -->
 		
@@ -318,7 +294,7 @@ header{
 		<div class="container-fluid">
 		<div class="blog-card">
 			<div class="inner-part">
-				<lable for="" class="img">
+				<lable for="" class="img"> 
 					<img src="images/xymalogo/6.jpg" width="auto" height=700px">
 				</lable>
 			</div>
