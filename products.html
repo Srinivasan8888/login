@@ -5,7 +5,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Page 1 alpha</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+	<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
 	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -26,7 +28,7 @@
 	list-style: none;
 }
 
-body {font-family: Verdana, sans-serif;}
+body {font-family: Verdana, sans-serif; overflow: hidden;}
 .mySlides {display: none;}
 img {vertical-align: middle;}
 :root{
@@ -36,8 +38,9 @@ img {vertical-align: middle;}
 }
 body{
 	min-height: 100vh;
-	background: #f1f1f1;
+	background: #ffff;
 	color: var(--text-color);
+	overflow-y: scroll;
 	
 }
 header{
@@ -142,6 +145,141 @@ header{
 	padding: 50px;
 }
 
+/*
+css for the card view in the proposal page
+*/
+#mainContainer{
+  width:100em;
+  height:21.750em;
+  margin:0 auto;
+  box-sizing:border-box;
+  display:flex;
+  background:#ebe6e6;
+  border: none;
+  border-radius:0.9em;
+  padding: 18px 20px;
+  box-shadow: 12px 12px 30px -11.9px rgba(251, 60, 96, 0.35), inset 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  transition: 0.8s;
+}
+
+.aside {
+  border-top-left-radius: 1.5em;
+  border-bottom-left-radius: 1.5em;
+  border-top-right-radius:0.1em;
+  border-bottom-right-radius: 0.1em;
+	display: inline-block;
+	filter: drop-shadow(5px 5px 15px #FC3E65);
+} 
+.card{
+	margin-left: 20px;
+}
+.card-body{
+	padding-left: 80px;
+}
+.cardview {
+  position:relative;
+  width: 490px;
+  height: 20.2em;
+  top:-12px;
+  left:-5px;
+	border-top-left-radius: 1.5em;
+  border-bottom-left-radius: 1.5em;
+  border-top-right-radius:1.5em;
+  border-bottom-right-radius: 1.5em;
+  background: linear-gradient(120deg, #fcca6e, #f97e32cc,  #FC3E65, #f23236);
+	
+}
+
+#card-content{
+  width:500px;
+  height:inherit;
+  box-sizing:border-box;
+  padding:0px 4px;
+}
+
+#header > h2{
+  font-family: 'Roboto', sans-serif;
+  color: #e0375a;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 20px 20px 20px 5px;
+}
+
+#disc{
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100%;
+}
+
+#disc > p{
+  font-family: 'Roboto', sans-serif;
+  padding-top: 40px;
+  font-size: 15px;
+  font-weight: normal;
+  color: #e0375a;
+}
+
+.readmore_btn{
+  font-family: 'Roboto', sans-serif;
+  width: 140px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid #9e9e9ed4;
+  outline: 0;
+  float: right;
+  bottom: 20px;
+  position: relative;
+  
+  margin-top: 45px;
+  margin-right: 20px;
+  color: #FC3E65;
+  justify-content: center;
+  border-radius: 3px;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  cursor: pointer;
+  transition: all .25s;
+}
+
+.readmore_btn:hover{
+  background: #fa3b58;
+  color: #FFFF;
+  box-shadow: none;
+}
+
+.footer {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+	bottom: 10px;
+	color: #9E9E9E;
+}
+
+.btn {
+  padding:0 10px 0;
+  text-decoration: none;
+  display: inline-block;
+  color: #9E9E9E;
+  background: transparent;
+  outline: 0;
+  transform:scale(1.0);
+  transition: 0.6s;
+}
+
+.btn:hover {
+  color: #FC3E65;
+  box-shadow: none;
+  transform:scale(1.1);
+  transition: 0.5s;
+}
+
+.logo img {
+  position:relative;
+  border-radius: 5px;
+  max-width: 100%;
+  margin: 45px;
+  height: 110px;
+  justify-content: center; 
+}
 
 
 @keyframes fade {
@@ -153,6 +291,7 @@ header{
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
 }
+
 
 @keyframes fade {
   from {opacity: .4} 
@@ -195,6 +334,9 @@ header{
 {
 	header{
 		padding-bottom: 3px;
+	}
+	.body{
+		overflow: hidden;
 	}
 		.logo{
 			width: 60px;
@@ -261,9 +403,37 @@ header{
 	<!-- <div class="img-fluid" width: 200px;">
 		  <img src="images/products/products.png" style="width:100%"> 
 		</div> -->
+
 		
+		<!--adding the cardview for the proposal page here!!!!-->
+		<!-- <div class="row">
+		<div id="mainContainer">
+			<div class="aside  col-md-6">
+				<div class='cardview' >
+					<div class="logo"><img src="https://image.ibb.co/nN6ZGz/postcard_pc.png" alt="profile-sample2"/></div> 
+				</div>
+			</div>
+
+			<div id="card-content col-md-6">
+				<div id="header">
+				  <h2>Case Studies</h2> 
+				</div>
+				<div id="disc">
+					<p>We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
+				   <button class="readmore_btn">Get your proporsal</button>
+				</div>
+			</div>
+
+		</div>
+		  </div>
+		  <!-- row -->
+		<!-- </div> -->
 		<!--working on the line color-->
+
 		
+
+		 
+
 			<div class="products">
 		<center>
 			<div class="row" style="width:100%">
@@ -291,7 +461,7 @@ header{
 		</div>
 
 		<!-- working on the banner-->
-		<div class="container-fluid">
+		<!-- <div class="container-fluid">
 		<div class="blog-card">
 			<div class="inner-part">
 				<lable for="" class="img"> 
@@ -299,7 +469,56 @@ header{
 				</lable>
 			</div>
 		</div>
+		</div> -->
+		<div class="row">
+		<div class="card mb-3" style="max-width: 540px;">
+			<div class="row g-1">
+			  <div class="col-md-4">
+				<img src="images/xymalogo/5.jpg" alt="profile-sample2" class="img-fluid rounded-start" width="auto" height="auto"> 
+			</div>
+			  </div>
+			  <div class="col-md-12">
+				<div class="card-body">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
+				  <button class="readmore_btn">Get proporsal</button>
+				</div>
+			  </div>
 		</div>
 
+		<div class="card mb-3" style="max-width: 540px;">
+			<div class="row g-1">
+			  <div class="col-md-4">
+				<img src="images/xymalogo/7.jpg" alt="profile-sample2" class="img-fluid rounded-start" width="auto" height="auto"> 
+			</div>
+			  </div>
+			  <div class="col-md-12">
+				<div class="card-body">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
+				  <button class="readmore_btn">Get proporsal</button>
+				</div>
+			  </div>
+		</div>
+
+		  <div class="card mb-3" style="max-width: 540px;">
+			<div class="row g-1">
+			  <div class="col-md-4">
+				<img src="images/xymalogo/6.jpg" alt="profile-sample2" class="img-fluid rounded-start" width="auto" height="auto"> 
+			</div>
+			  </div>
+			  <div class="col-md-12">
+				<div class="card-body">
+				  <h5 class="card-title">Card title</h5>
+				  <p class="card-text">We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
+				  <button class="readmore_btn">Get proporsal</button>
+				</div>
+			  </div>
+		  </div>
+
+		  
+		  </div>
+		</div>
+		
 </body>
 </html>
