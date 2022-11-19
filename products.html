@@ -4,8 +4,6 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <title>Page 1 alpha</title>
-      <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-      <!-- CSS only -->
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
       <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
       <link rel="stylesheet"
@@ -13,8 +11,17 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com"> 
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
+
       <style>
+         .body{
+            font-family: 'Plus Jakarta Sans', sans-serif;
+         }
          .shaww{
+            
          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
          }
 
@@ -53,6 +60,51 @@
             padding-top: 30px;
             padding-bottom: 20px;
          }
+
+         .card{
+            border-radius: 2em; overflow:hidden; width: 25rem; cursor: pointer;
+         }
+         .cdd:hover {
+         transition: .5s;
+         overflow: hidden;
+         
+         }
+         .overlay {
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         height: auto;
+         width: auto;
+         opacity: 0;
+         border-radius: 2em;
+         background: linear-gradient(290deg, #FFED00, #FF0000);
+         background-size: 800% 800%;
+         -webkit-animation: AnimationName 3s ease infinite;
+         -moz-animation: AnimationName 3s ease infinite;
+         animation: AnimationName 3s ease infinite;
+         /* background-color: #008CBA; */
+         }
+         @-webkit-keyframes AnimationName {
+         0%{background-position:0% 50%}
+         50%{background-position:100% 50%}
+         100%{background-position:0% 50%}
+         }
+         @-moz-keyframes AnimationName {
+         0%{background-position:0% 50%}
+         50%{background-position:100% 50%}
+         100%{background-position:0% 50%}
+         }
+         @keyframes AnimationName { 
+         0%{background-position:0% 50%}
+         50%{background-position:100% 50%}
+         100%{background-position:0% 50%}
+         }
+
+         .cdd:hover .overlay:hover {
+         opacity: .7;
+         }
       </style>
    </head>
    <body>
@@ -70,7 +122,8 @@
          	<img src="images/bmenu.png" class="menus" id="menu-icon"></img>
          </div>
          </header> -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
          <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="images/xyma_white_bg.png" width="100"></img></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -102,268 +155,177 @@
                </ul>
             </div>
          </div>
-      </nav>
-      <!-- <div class="img-fluid" width: 200px;">
-         <img src="images/products/products.png" style="width:100%"> 
-         </div> -->
-      <!--adding the cardview for the proposal page here!!!!-->
-      <!-- <div class="row">
-         <div id="mainContainer">
-         	<div class="aside  col-md-6">
-         		<div class='cardview' >
-         			<div class="logo"><img src="https://image.ibb.co/nN6ZGz/postcard_pc.png" alt="profile-sample2"/></div> 
-         		</div>
-         	</div>
-         
-         	<div id="card-content col-md-6">
-         		<div id="header">
-         		  <h2>Case Studies</h2> 
-         		</div>
-         		<div id="disc">
-         			<p>We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
-         		   <button class="readmore_btn">Get your proporsal</button>
-         		</div>
-         	</div>
-         
+      </nav> -->
+      
+      <div class="container-fluid">
+         <div class="products">
+            <center>
+               <div class="row" style="width:100%">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                     <a style="color:black;
+                        font-size:28px;
+                        text-align:center;">
+                     News
+                     </a>
+                  </div>
+                  <div class="col-md-3">
+                  </div>
+               </div>
+               <div class="row" style="width:100%;">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-2">
+                     <hr style="height:4px;background: rgb(248,136,82);
+                        background: linear-gradient(90deg, rgba(248,136,82,1) 40%, rgba(254,196,84,1) 79%);width:100px;">
+                  </div>
+                  <div class="col-md-5">
+                  </div>
+               </div>
+               <br>
+            </center>
          </div>
-           </div>
-           <!-- row -->
-      <!-- </div> -->
-      <!--working on the line color-->
-      <div class="products">
-         <center>
-            <div class="row" style="width:100%">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
-                  <a style="color:black;
-                     font-size:28px;
-                     text-align:center;">
-                  News
-                  </a>
-               </div>
-               <div class="col-md-3">
-               </div>
-            </div>
-            <div class="row" style="width:100%;">
-               <div class="col-md-5"></div>
-               <div class="col-md-2">
-                  <hr style="height:4px;background: rgb(248,136,82);
-                     background: linear-gradient(90deg, rgba(248,136,82,1) 40%, rgba(254,196,84,1) 79%);width:100px;">
-               </div>
-               <div class="col-md-5">
-               </div>
-            </div>
-            <br>
-         </center>
       </div>
-      <!-- working on the banner-->
-      <!-- <div class="container-fluid">
-         <div class="blog-card">
-         	<div class="inner-part">
-         		<lable for="" class="img"> 
-         			<img src="images/xymalogo/6.jpg" width="auto" height=700px">
-         		</lable>
-         	</div>
-         </div>
-         </div> -->
-      <!--primary card view -->
-      <!-- <div class="container-fluid">
-         <div class="row">
-            <div class="col-md-3">
-               <div class="card mb-3 shaww" style="max-width: 540px;">
-                  <div class="row g-1">
-                     <div class="col-md-4">
-                        <img src="images/xymalogo/5.jpg" alt="profile-sample2" class="img-fluid" width="70%" height="auto"> 
-                     </div>
-                  </div>
-                  <div class="row">
-                     <div class="col-md-12">
-                        <div class="card-body">
-                           <h5 class="card-title">Card title</h5>
-                           <p class="card-text">We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
-         <a href="#" class="btn btn-primary">Get your proposal</a> 
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         
-         <div class="col-md-3">
-            <div class="card mb-3 shaww" style="max-width: 540px;">
-               <div class="row g-1">
-                  <div class="col-md-4">
-                     <img src="images/xymalogo/7.jpg" alt="profile-sample2" class="img-fluid" width="70%" height="auto"> 
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
-                        <a href="#" class="btn btn-primary">Get your proposal</a>
-         
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-3">
-            <div class="card mb-3 shaww" style="max-width: 540px;">
-               <div class="row g-1">
-                  <div class="col-md-4">
-                     <img src="images/xymalogo/6.jpg" alt="profile-sample2" class="img-fluid" width="70%" height="auto"> 
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
-                        <a href="#" class="btn btn-primary">Get your proposal</a>
-         
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="col-md-3">
-            <div class="card mb-3 shaww" style="max-width: 540px;">
-               <div class="row g-1">
-                  <div class="col-md-4">
-                     <img src="images/xymalogo/4.jpg" alt="profile-sample2" class="img-fluid" width="70%" height="auto"> 
-                  </div>
-               </div>
-               <div class="row">
-                  <div class="col-md-12">
-                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">We have helped our clients realize their dreams of creating a great technology platform, go live to market, generate great revenues, acquire thousands of users and get million-dollar valuations. We can do the same for you. The journey of a thousand miles starts with a single step.</p>
-                        <a href="#" class="btn btn-primary">Get your proposal</a>
-         
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         </div>
-         
-         </div>-->
+
       <div class="container-fluid">
          <div class="row row-cols-1 row-cols-md-1 g-5 ms-auto" >
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+
+               <div class="card cdd shaww">
                   <a href="https://yourstory.com/2021/09/shell-e4-demo-day-accelerating-clean-energy-technology" target="_blank" rel="noopener noreferrer">
-                  <img src="images/newsletter/11.svg"  class="card-img-top" alt="your story">
+                  <img src="images/newsletter/11.svg" class="card-img-top" alt="your story">
                   </a>
-                  <div class="card-body">
-                     <h5 class="card-title">Your Story</h5>
-                     <p class="card-text">Shell E4 Demo Day: Accelerating technology for a cleaner energy future</p>
-                  </div>
+                  <div class="overlay"></div>               
+               </div>
+               <div class="col-lg-10">
+               <div class="card-body">
+                  <h5 class="card-title">Your Story</h5>
+                  <p class="card-text">Shell E4 Demo Day: Accelerating technology for a cleaner energy future</p>
                </div>
             </div>
+            </div>
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+               <div class="card cdd shaww">
                   <a href="https://www.saurenergy.com/solar-energy-news/shell-launches-digital-track-for-indian-start-ups-under-its-e4-programme" target="_blank" rel="noopener noreferrer">
                   <img src="images/newsletter/12.svg" class="card-img-top" alt="saur energy">
                   </a>
-                  <div class="card-body">
-                     <h5 class="card-title">Saur Energy International</h5>
-                     <p class="card-text">Shell Launches Digital Track for Indian Start ups under its E4 Programme.</p>
-                  </div>
+                  <div class="overlay"></div>               
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title">Saur Energy International</h5>
+                  <p class="card-text">Shell Launches Digital Track for Indian Start ups under its E4 Programme.</p>
                </div>
             </div>
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+               <div class="card cdd shaww">
                   <a href="https://www.thehindubusinessline.com/business-tech/remote-sensing-with-xyma-analytics/article64577779.ece" target="_blank" rel="noopener noreferrer">
                   <img src="images/newsletter/13.svg" class="card-img-top" alt="">
                   </a>
-                  <div class="card-body">
-                     <h5 class="card-title">The Hindu, Business line</h5>
-                     <p class="card-text">Start-up tech. Remote sensing with Xyma Analytics.<br><br></p>
-                  </div>
+                  <div class="overlay"></div>
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title">The Hindu, Business line</h5>
+                  <p class="card-text">Start-up tech. Remote sensing with Xyma Analytics.<br><br></p>
                </div>
             </div>
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+               <div class="card cdd shaww">
                   <a href="https://www.iitm.ac.in/happenings/press-releases-and-coverages/remote-sensing-xyma-analytics" target="_blank" rel="noopener noreferrer">
                   <img src="images/newsletter/14.svg" class="card-img-top" alt="...">
                   </a>
-                  <div class="card-body">
-                     <h5 class="card-title">IIT Madras</h5>
-                     <p class="card-text">Remote sensing with Xyma Analytics.<br><br></p>
-                  </div>
+                  <div class="overlay"></div>
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title">IIT Madras</h5>
+                  <p class="card-text">Remote sensing with Xyma Analytics.<br><br></p>
                </div>
             </div>
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+               <div class="card cdd shaww">
                   <a href="https://yourstory.com/2021/07/qualcomm-design-challenge-finalists-announced-dpiit-secretary-interact"  target="_blank" rel="noopener noreferrer">        
                   <img src="images/newsletter/15.svg" class="card-img-top" alt="..."></a>
-                  <div class="card-body">
-                     <h5 class="card-title">Your Story</h5>
-                     <p class="card-text">Qualcomm Design in India Challenge 2021 finalists announced interact with Additional Secretary of DPIIT.</p>
-                  </div>
+                  <div class="overlay"></div>
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title">Your Story</h5>
+                  <p class="card-text">Qualcomm Design in India Challenge 2021 finalists announced interact with Additional Secretary of DPIIT.</p>
                </div>
             </div>
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+               <div class="card cdd shaww">
                   <a href="https://www.thehindubusinessline.com/companies/tn-chief-minister-awards-cheques-worth-95-lakh-to-19-start-ups/article38020063.ece" target="_blank" rel="noopener noreferrer">
                   <img src="images/newsletter/16.svg" class="card-img-top" alt="..."></a>
-                  <div class="card-body">
-                     <h5 class="card-title">The Hindu, Business line</h5>
-                     <p class="card-text">TN Chief Minister awards cheques worth ₹95 lakh to 19 start-ups<br><br></p>
-                  </div>
+                  <div class="overlay"></div>
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title">The Hindu, Business line</h5>
+                  <p class="card-text">TN Chief Minister awards cheques worth ₹95 lakh to 19 start-ups<br><br></p>
                </div>
             </div>
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+               <div class="card cdd shaww">
                   <a href="https://www.einnews.com/pr_news/564327124/smarthub-ai-and-xyma-partnership-announcement"  target="_blank" rel="noopener noreferrer">
                   <img src="images/newsletter/17.svg" class="card-img-top" alt="..."></a>
-                  <div class="card-body">
-                     <h5 class="card-title">news wires</h5>
-                     <p class="card-text">SmartHub.ai and XYMA Partnership Announcement.<br><br></p>
-                  </div>
+                  <div class="overlay"></div>
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title">news wires</h5>
+                  <p class="card-text">SmartHub.ai and XYMA Partnership Announcement.<br><br></p>
                </div>
             </div>
+
             <div class="col-lg-4 mb-4">
-               <div class="card shaww">
+               <div class="card cdd shaww">
                   <a href="https://www.aninews.in/news/business/business/aegis-graham-bell-awards-announces-its-winners-and-finalists-for-the-12th-edition20220228184753"  target="_blank" rel="noopener noreferrer">
                   <img src="images/newsletter/18.svg" class="card-img-top" alt="..."></a>
-                  <div class="card-body">
-                     <h5 class="card-title">ANI</h5>
-                     <p class="card-text">Aegis Graham Bell Awards announces its winners and finalists for the 12th Edition<br></p>
-                  </div>
+                  <div class="overlay"></div>
+               </div>
+               <div class="card-body">
+                  <h5 class="card-title">ANI</h5>
+                  <p class="card-text">Aegis Graham Bell Awards announces its winners and finalists for the 12th Edition<br></p>
                </div>
             </div>
          </div>
       </div>
-      <div class="products">
-         <center>
-            <div class="row" style="width:100%">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
-                  <a style="color:black;
-                     font-size:28px;
-                     text-align:center;">
-                  Achievements
-                  </a>
-               </div>
-               <div class="col-md-3">
-               </div>
-            </div>
-            <div class="row" style="width:100%;">
-               <div class="col-md-5"></div>
-               <div class="col-md-2">
-                  <hr style="height:4px;background: rgb(131, 58, 180); background: linear-gradient(90deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);width:100px;">
-               </div>
-               <div class="col-md-5">
-               </div>
-            </div>
-            <br>
-         </center>
-      </div>
-      <!--adding the achievements-->
+
       <div class="container-fluid">
-         <div class="row row-cols-1 row-cols-md-4 g-5 ms-auto">
+         <div class="products">
+            <center>
+               <div class="row" style="width:100%">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                     <a style="color:black;
+                        font-size:28px;
+                        text-align:center;">
+                     Achievements
+                     </a>
+                  </div>
+                  <div class="col-md-3">
+                  </div>
+               </div>
+               <div class="row" style="width:100%;">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-2">
+                     <hr style="height:4px;background: rgb(131, 58, 180); background: linear-gradient(90deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);width:100px;">
+                  </div>
+                  <div class="col-md-5">
+                  </div>
+               </div>
+               <br>
+            </center>
+         </div>
+      </div>
+
+      <!--adding the achievements-->
+
+      <div class="container-fluid">
+         <div class="row row-cols-1 row-cols-md-3 g-5 ms-auto">
             <div class="col">
                <div class="card shaww">
                   <img src="images/logo/19.svg" class="card-img-top" alt="Hollywood Sign on The Hill"/>
@@ -397,30 +359,32 @@
          </div>
       </div>
 
-      <div class="products">
-         <center>
-            <div class="row" style="width:100%">
-               <div class="col-md-3"></div>
-               <div class="col-md-6">
-                  <a style="color:black;
-                     font-size:28px;
-                     text-align:center;">
-                  Gallary
-                  </a>
+      <div class="container-fluid">
+         <div class="products">
+            <center>
+               <div class="row" style="width:100%">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                     <a style="color:black;
+                        font-size:28px;
+                        text-align:center;">
+                     Gallery
+                     </a>
+                  </div>
+                  <div class="col-md-3">
+                  </div>
                </div>
-               <div class="col-md-3">
+               <div class="row" style="width:100%;">
+                  <div class="col-md-5"></div>
+                  <div class="col-md-2">
+                     <hr style="height:4px;background: rgb(131, 58, 180); background: linear-gradient(90deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);width:100px;">
+                  </div>
+                  <div class="col-md-5">
+                  </div>
                </div>
-            </div>
-            <div class="row" style="width:100%;">
-               <div class="col-md-5"></div>
-               <div class="col-md-2">
-                  <hr style="height:4px;background: rgb(131, 58, 180); background: linear-gradient(90deg, rgba(253, 29, 29, 1) 0%, rgba(252, 176, 69, 1) 100%);width:100px;">
-               </div>
-               <div class="col-md-5">
-               </div>
-            </div>
-            <br>
-         </center>
+               <br>
+            </center>
+         </div>
       </div>
 
    <div class="container-fluid">
@@ -431,7 +395,7 @@
              <img src="images/gallary/25.svg" class="card-img-top" alt="...">
            </div>
          </div>
-
+         
          <div class="col">
             <div class="card shaww">
               <img src="images/gallary/26.svg" class="card-img-top" alt="...">
