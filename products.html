@@ -14,6 +14,8 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
+      
+      
       <style>
          .body{
          font-family: 'Plus Jakarta Sans', sans-serif;
@@ -214,7 +216,7 @@
          }
          .footer-widget ul li {
          display: inline-block;
-         float: left;
+         /* float: left; */
          width: 50%;
          margin-bottom: 12px;
          }
@@ -272,6 +274,142 @@
          font-size: 14px;
          color: #878787;
          }
+         *{
+         padding: 0;
+         margin: 0;
+         box-sizing: border-box;
+         font-family: 'Poppins', sans-serif;
+         text-decoration: none;
+         list-style: none;
+         }
+         :root{
+         --bg-color: #;
+         --text-color: #222327;
+         --main-color: #29fd53;
+         }
+         body{
+         min-height: 100vh;
+         color: var(--text-color);
+         }
+         header{
+         position: fixed;
+         width: 100%;
+         top: 0;
+         right: 0;
+         z-index: 1000;
+         display: flex;
+         align-items: center;
+         justify-content: space-between;
+         background: transparent;
+         padding: 28px 12%;
+         transition: all .50s ease;
+         }
+         .logo{
+         display: flex;
+         align-items: center;
+         }
+         .logo i{
+         color: var(--main-color);
+         font-size: 28px;
+         margin-right: 3px;
+         }
+         .logo span{
+         color: var(--text-color);
+         font-size: 1.7rem;
+         font-weight: 600;
+         }
+         .navbar{
+         display: flex;
+         }
+         .navbar a{
+         color: var(--text-color);
+         font-size: 1.1rem;
+         font-weight: 500;
+         padding: 5px 0;
+         margin: 0px 30px;
+         transition: all .50s ease;
+         }
+         .navbar a:hover{
+         color: var(--main-color);
+         }
+         .navbar a.active{
+         color: var(--main-color);
+         }
+         .main{
+         display: flex;
+         align-items: center;
+         }
+         .main a{
+         margin-right: 25px;
+         margin-left: 10px;
+         color: var(--text-color);
+         font-size: 1.1rem;
+         font-weight: 500;
+         transition: all .50s ease;
+         }
+         .user{
+         display: flex;
+         align-items: center;
+         }
+         .user i{
+         color: var(--main-color);
+         font-size: 28px;
+         margin-right: 7px;
+         }
+         .main a:hover{
+         color: var(--main-color);
+         }
+         #menu-icon{
+         font-size: 35px;
+         color: var(--text-color);
+         cursor: pointer;
+         z-index: 10001;
+         display: none;
+         }
+         @media (max-width: 1280px){
+         header{
+         padding: 14px 2%;
+         transition: .2s;
+         }
+         .navbar a{
+         padding: 5px 0;
+         margin: 0px 20px;
+         }
+         }
+         @media (max-width: 1090px){
+         #menu-icon{
+         display: block;
+         }
+         .navbar{
+         position: absolute;
+         top: 100%;
+         right: -100%;
+         width: 270px;
+         height: 29vh;
+         background: var(--main-color);
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-start;
+         border-radius: 10px;
+         transition: all .50s ease;
+         }
+         .navbar a{
+         display: block;
+         margin: 12px 0;
+         padding: 0px 25px;
+         transition: all .50s ease;
+         }
+         .navbar a:hover{
+         color: var(--text-color);
+         transform: translateY(5px);
+         }
+         .navbar a.active{
+         color: var(--text-color);
+         }
+         .navbar.open{
+         right: 2%;
+         }
+         }
       </style>
    </head>
    <body>
@@ -322,6 +460,30 @@
                </div>
          </nav>
          </div> -->
+
+         <!-----navbar-------->
+         <header>
+            <a href="#" class="logo"><i class="ri-home-heart-fill"></i><span>Logo</span></a>
+            <ul class="navbar">
+               <li><a href="#" class="active">Home</a></li>
+               <li><a href="#">Products</a></li>
+               <li><a href="#">Carrers</a></li>
+               <li><a href="#">Spolights</a></li>
+               <li><a href="#">About Us</a></li>
+               <li><a href="#">contact Us</a></li>
+
+            </ul>
+            <div class="main">
+               <a href="#" class="user"><i class="ri-user-fill"></i>Sign In</a>
+               <a href="#">Register</a>
+               <div class="bx bx-menu" id="menu-icon"></div>
+            </div>
+         </header>
+         <br>
+         <br>
+         <br>
+         <!--nav bar-->
+
       <div class="container-fluid">
          <div class="products">
             <center>
@@ -570,9 +732,7 @@
       </div>
       <br>
       <br>
-
       <!--footer on developement-->
-
       <footer class="footer-section">
          <div class="container">
             <div class="footer-cta pt-5 pb-5">
@@ -583,9 +743,9 @@
                         <div class="cta-text">
                            <h4>Find us</h4>
                            <span>XYMA Analytics Pvt Ltd<br>
-                              B block 3rd Floor,<br>
-                              IITM Research Park,<br>
-                              Taramani,<br> chennai - 600113
+                           B block 3rd Floor,<br>
+                           IITM Research Park,<br>
+                           Taramani,<br> chennai - 600113
                            </span>
                         </div>
                      </div>
@@ -621,19 +781,18 @@
                            <a href="index.html"><img src="images/logo4.png" class="img-fluid" alt="logo"></a>
                         </div>
                         <div class="footer-text">
-                           
                         </div>
                         <div class="footer-social-icon">
                            <span>Follow us</span>
-                           <div class="container-fluid">
-                           <img src="images/social/facebook.png" class="img-fluid" alt="facebook">
-                           <img src="images/social/instagram.png" class="img-fluid" alt="instagram">
-                           <img src="images/social/linkedin.png" class="img-fluid" alt="linked-in">
-                           <img src="images/social/twitter.png" class="img-fluid" alt="twitter">
-                           <!-- <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
-                           <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
-                           <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a> -->
-                        </div>
+                           <div class="container">
+                              <a href=""><img src="images/social/facebook.png" style="width: 45px; height: auto;" alt="facebook"></a>
+                              <a href=""><img src="images/social/instagram.png" style="width: 50px; height: auto;" alt="instagram"></a>
+                              <a href=""><img src="images/social/linkedin.png" style="width: 45px; height: auto;" alt="linked-in"></a>
+                              <a href=""><img src="images/social/twitter.png" style="width: 45px; height: auto;" alt="twitter"></a>
+                              <!-- <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
+                                 <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
+                                 <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a> -->
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -667,7 +826,7 @@
                         <div class="subscribe-form">
                            <form action="#">
                               <input type="text" placeholder="Email Address">
-                              <button><i class="fab fa-telegram-plane"></i></button>
+                              <button><img src="images/social/telegram.png" style="height:25px ;width:auto;"></i></button>
                            </form>
                         </div>
                      </div>
@@ -680,7 +839,7 @@
                <div class="row">
                   <div class="col-xl-6 col-lg-6 text-center text-lg-left">
                      <div class="copyright-text">
-                        <p>Copyright &copy; 2018, All Right Reserved <a href="https://www.xyma.in">xyma</a></p>
+                        <p>Copyright &copy; 2018, All Right Reserved <a href="https://www.xyma.in">XYMA</a></p>
                      </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
@@ -699,4 +858,92 @@
          </div>
       </footer>
    </body>
+   <script>
+      var cursor = document.querySelector('.cursor');
+      var cursorinner = document.querySelector('.cursor2');
+      var a = document.querySelectorAll('a');
+      
+      document.addEventListener('mousemove', function(e){
+        var x = e.clientX;
+        var y = e.clientY;
+        cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+      });
+      
+      document.addEventListener('mousemove', function(e){
+        var x = e.clientX;
+        var y = e.clientY;
+        cursorinner.style.left = x + 'px';
+        cursorinner.style.top = y + 'px';
+      });
+      
+      document.addEventListener('mousedown', function(){
+        cursor.classList.add('click');
+        cursorinner.classList.add('cursorinnerhover')
+      });
+      
+      document.addEventListener('mouseup', function(){
+        cursor.classList.remove('click')
+        cursorinner.classList.remove('cursorinnerhover')
+      });
+      
+      a.forEach(item => {
+        item.addEventListener('mouseover', () => {
+          cursor.classList.add('hover');
+        });
+        item.addEventListener('mouseleave', () => {
+          cursor.classList.remove('hover');
+        });
+      })
+      // var loader;
+      // function loadNow(opacity){
+      //   if(opacity <= 0){
+      //     displayContent();
+      //   }
+      //   else{
+      //     loader.style.opacity = opacity;
+      //     window.setTimeout(function(){
+      //       loadNow(opacity - 0.01)
+      //     }, 100);
+      //   }
+      // }
+      // function displayContent(){
+      //   loader.style.display = 'none';
+      //   document.getelementById('content').style.display = 'block';
+      // }
+      // document.addEventListener("DOMContentLoaded", function(){
+      //   loader = document.getElementById('loader');
+      //   loader(1);
+      // });
+      let x = 0;
+      let textEffect = "Our SENSOR Solutions Suit all of \n your needs.";
+      let container = document.getElementById("effect");
+      
+      function animate() {
+          if(x < textEffect.length){
+              container.innerHTML += textEffect.charAt(x);
+              x++;
+              setTimeout(animate, 35);
+          }
+      }
+      animate();
+      let y = 0;
+      let te = "Let's Protect your Process while Increasing your Productivity";
+      let cont = document.getElementById("eft");
+      
+      function ani() {
+          if(y < te.length){
+              cont.innerHTML += te.charAt(y);
+              y++;
+              setTimeout(ani, 70);
+          }
+      }
+      ani();
+      let menu = document.querySelector('#menu-icon');
+      let navbar = document.querySelector('.navbar');
+      
+      menu.onclick = () => {
+      menu.classList.toggle('bx-x');
+      navbar.classList.toggle('open');
+      }
+   </script>
 </html>
