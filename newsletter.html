@@ -14,8 +14,6 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap" rel="stylesheet">
-      
-      
       <style>
          .body{
          font-family: 'Plus Jakarta Sans', sans-serif;
@@ -226,6 +224,7 @@
          .footer-widget ul li a {
          color: #878787;
          text-transform: capitalize;
+         text-decoration: none;
          }
          .subscribe-form {
          position: relative;
@@ -274,6 +273,7 @@
          font-size: 14px;
          color: #878787;
          }
+         /* wokring on the navbar */
          *{
          padding: 0;
          margin: 0;
@@ -294,6 +294,7 @@
          header{
          position: fixed;
          width: 100%;
+         height: 10%;
          top: 0;
          right: 0;
          z-index: 1000;
@@ -301,6 +302,7 @@
          align-items: center;
          justify-content: space-between;
          background: transparent;
+         background-color: #878787;
          padding: 28px 12%;
          transition: all .50s ease;
          }
@@ -327,6 +329,7 @@
          font-weight: 500;
          padding: 5px 0;
          margin: 0px 30px;
+         text-decoration: none;
          transition: all .50s ease;
          }
          .navbar a:hover{
@@ -366,6 +369,27 @@
          z-index: 10001;
          display: none;
          }
+         /* gradient linear */
+         .bgg{
+         background-image: linear-gradient(to right, rgb(83, 61, 61), grey);
+         }
+         .gradient-underline {
+         padding-bottom: 15px;
+         position: relative;
+         text-decoration: none;
+         }
+
+         .gradient-underline::after {
+         background: #f00;
+         background: linear-gradient(to right, transparent 0%, #ffae42 50%, transparent 100%);  
+         content: "";
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         height: 2px;
+         width: 100%;
+         }
+
          @media (max-width: 1280px){
          header{
          padding: 14px 2%;
@@ -460,30 +484,30 @@
                </div>
          </nav>
          </div> -->
-
-         <!-----navbar-------->
-         <header>
-            <a href="#" class="logo"><i class="ri-home-heart-fill"></i><span>Logo</span></a>
-            <ul class="navbar">
-               <li><a href="#" class="active">Home</a></li>
-               <li><a href="#">Products</a></li>
-               <li><a href="#">Carrers</a></li>
-               <li><a href="#">Spolights</a></li>
-               <li><a href="#">About Us</a></li>
-               <li><a href="#">contact Us</a></li>
-
-            </ul>
-            <div class="main">
-               <a href="#" class="user"><i class="ri-user-fill"></i>Sign In</a>
-               <a href="#">Register</a>
-               <div class="bx bx-menu" id="menu-icon"></div>
-            </div>
-         </header>
-         <br>
-         <br>
-         <br>
-         <!--nav bar-->
-
+      <!-----navbar-------->
+      <header>
+         <!-- <a href="#" class="logo"><i class="ri-home-heart-fill"></i><span>Logo</span></a> -->
+         <img src="images/logo4.png" class="image-fluid" style="height:55px ;width:auto;" id="logo"></a>
+         <ul class="navbar">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Carrers</a></li>
+            <li><a href="#">Spolights</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">contact Us</a></li>
+         </ul>
+         <div class="main">
+            <a href="" class="user" style="text-decoration: none;"><i class="ri-user-fill"></i>Demo</a>
+            <!-- <a href="#">Register</a> -->
+            <div class="bx bx-menu" id="menu-icon"></div>
+         </div>
+      </header>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <!--nav bar-->
       <div class="container-fluid">
          <div class="products">
             <center>
@@ -516,7 +540,7 @@
          <div class="row row-cols-1 row-cols-md-1 g-5 ms-auto" >
             <div class="col-lg-4 mb-4">
                <div class="card card1 cdd shaww w-auto">
-                  <a href="https://yourstory.com/2021/09/shell-e4-demo-day-accelerating-clean-energy-technology" target="_blank" rel="noopener noreferrer">
+                  <a href="https://yourstory.com/2021/09/shell-e4-demo-day-accelerating-clean-energy-technology/" target="_blank" rel="noopener noreferrer">
                   <img src="images/newsletter/11.svg" class="card-img-top" alt="your story">
                   </a>
                   <div class="overlay"></div>
@@ -552,9 +576,9 @@
             </div>
             <div class="col-lg-4 mb-4">
                <div class="card card1 cdd shaww w-auto">
-                  <a href="https://www.iitm.ac.in/happenings/press-releases-and-coverages/remote-sensing-xyma-analytics" target="_blank" rel="noopener noreferrer">
-                  <img src="images/newsletter/14.svg" class="card-img-top" alt="...">
-                  </a>
+                  <!-- <a href="https://www.iitm.ac.in/happenings/press-releases-and-coverages/remote-sensing-xyma-analytics" target="_blank" rel="noopener noreferrer"> -->
+                  <a href="https://www.iitm.ac.in/happenings/press-releases-and-coverages/remote-sensing-xyma-analytics">
+                  <img src="images/newsletter/14.svg" class="card-img-top" alt="..."> </a>
                   <div class="overlay"></div>
                </div>
                <div class="card-body">
@@ -608,6 +632,37 @@
             </div>
          </div>
       </div>
+      <br>
+      <br>
+      <div class="row">
+         <div class="col-md-12 mt-3">
+            <center>
+               <h3 class="gradient-underline fnt"></h3>
+               <br>
+            </center>
+         </div>
+         </div>
+      <center>
+      <div class="card text-center w-50">
+         <div class="card-header" >
+           Meet XYMA Analytics
+         </div>
+         <div class="card-body">
+           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+           <a href="#" class="btn btn-primary">Contact Us</a>
+         </div>
+       </div>
+      </center>
+      <div class="row">
+         <div class="col-md-12 mt-3">
+            <center>
+               <h3 class="gradient-underline fnt"></h3>
+               <br>
+            </center>
+         </div>
+         </div>
+       <br>
+       <br>
       <div class="container-fluid">
          <div class="products">
             <center>
@@ -698,38 +753,40 @@
          </div>
       </div>
       <div class="container-fluid">
-      <div class="row row-cols-1 row-cols-md-4 g-5 ms-auto ">
-         <div class="col">
-            <div class="card card3 shaww">
-               <img src="images/gallary/25.svg" class="card-img-top" alt="...">
+      <center>
+         <div class="row row-cols-1 row-cols-md-4 g-5 ms-auto ">
+            <div class="col">
+               <div class="card card3 shaww">
+                  <img src="images/gallary/25.svg" class="card-img-top" alt="...">
+               </div>
+            </div>
+            <div class="col">
+               <div class="card card3 shaww">
+                  <img src="images/gallary/26.svg" class="card-img-top" alt="...">
+               </div>
+            </div>
+            <div class="col">
+               <div class="card card3 shaww">
+                  <img src="images/gallary/27.svg" class="card-img-top" alt="...">
+               </div>
+            </div>
+            <div class="col">
+               <div class="card card3 shaww">
+                  <img src="images/gallary/28.svg" class="card-img-top" alt="...">
+               </div>
+            </div>
+            <div class="col">
+               <div class="card card3 shaww">
+                  <img src="images/gallary/29.svg" class="card-img-top" alt="...">
+               </div>
+            </div>
+            <div class="col">
+               <div class="card card3 shaww">
+                  <img src="images/gallary/30.svg" class="card-img-top" alt="...">
+               </div>
             </div>
          </div>
-         <div class="col">
-            <div class="card card3 shaww">
-               <img src="images/gallary/26.svg" class="card-img-top" alt="...">
-            </div>
-         </div>
-         <div class="col">
-            <div class="card card3 shaww">
-               <img src="images/gallary/27.svg" class="card-img-top" alt="...">
-            </div>
-         </div>
-         <div class="col">
-            <div class="card card3 shaww">
-               <img src="images/gallary/28.svg" class="card-img-top" alt="...">
-            </div>
-         </div>
-         <div class="col">
-            <div class="card card3 shaww">
-               <img src="images/gallary/29.svg" class="card-img-top" alt="...">
-            </div>
-         </div>
-         <div class="col">
-            <div class="card card3 shaww">
-               <img src="images/gallary/30.svg" class="card-img-top" alt="...">
-            </div>
-         </div>
-      </div>
+      </center>
       <br>
       <br>
       <!--footer on developement-->
@@ -742,10 +799,10 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <div class="cta-text">
                            <h4>Find us</h4>
-                           <span>XYMA Analytics Pvt Ltd<br>
+                           <span>XYMA Analytics Pvt Ltd,<br>
                            B block 3rd Floor,<br>
                            IITM Research Park,<br>
-                           Taramani,<br> chennai - 600113
+                           Taramani,<br> Chennai - 600113
                            </span>
                         </div>
                      </div>
@@ -773,6 +830,7 @@
                   </div>
                </div>
             </div>
+
             <div class="footer-content pt-5 pb-5">
                <div class="row">
                   <div class="col-xl-4 col-lg-4 mb-50">
@@ -785,10 +843,10 @@
                         <div class="footer-social-icon">
                            <span>Follow us</span>
                            <div class="container">
-                              <a href=""><img src="images/social/facebook.png" style="width: 45px; height: auto;" alt="facebook"></a>
-                              <a href=""><img src="images/social/instagram.png" style="width: 50px; height: auto;" alt="instagram"></a>
-                              <a href=""><img src="images/social/linkedin.png" style="width: 45px; height: auto;" alt="linked-in"></a>
-                              <a href=""><img src="images/social/twitter.png" style="width: 45px; height: auto;" alt="twitter"></a>
+                              <a href="https://www.facebook.com/XymaAnalyticsPvtLtd/" target="_blank" rel="noopener noreferrer"><img src="images/social/facebook.png" style="width: 45px; height: auto;" alt="facebook"></a>
+                              <a href="https://www.instagram.com/xyma_analytics/" target="_blank" rel="noopener noreferrer"><img src="images/social/instagram.png" style="width: 50px; height: auto;" alt="instagram"></a>
+                              <a href="https://www.linkedin.com/company/xyma-analytics/mycompany/" target="_blank" rel="noopener noreferrer"><img src="images/social/linkedin.png" style="width: 45px; height: auto;" alt="linked-in"></a>
+                              <a href="https://twitter.com/analyticsxyma?lang=en" target="_blank" rel="noopener noreferrer"><img src="images/social/twitter.png" style="width: 45px; height: auto;" alt="twitter"></a>                           
                               <!-- <a href="#"><i class="fab fa-facebook-f facebook-bg"></i></a>
                                  <a href="#"><i class="fab fa-twitter twitter-bg"></i></a>
                                  <a href="#"><i class="fab fa-google-plus-g google-bg"></i></a> -->
@@ -796,6 +854,7 @@
                         </div>
                      </div>
                   </div>
+                  <br>
                   <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
                      <div class="footer-widget">
                         <div class="footer-widget-heading">
@@ -845,11 +904,11 @@
                   <div class="col-xl-6 col-lg-6 d-none d-lg-block text-right">
                      <div class="footer-menu">
                         <ul>
-                           <li><a href="#">Home</a></li>
-                           <li><a href="#">Terms</a></li>
-                           <li><a href="#">Privacy</a></li>
-                           <li><a href="#">Policy</a></li>
-                           <li><a href="#">Contact</a></li>
+                           <li><a href="">Home</a></li>
+                           <li><a href="">Terms</a></li>
+                           <li><a href="">Privacy</a></li>
+                           <li><a href="">Policy</a></li>
+                           <li><a href="">Contact</a></li>
                         </ul>
                      </div>
                   </div>
@@ -859,85 +918,7 @@
       </footer>
    </body>
    <script>
-      var cursor = document.querySelector('.cursor');
-      var cursorinner = document.querySelector('.cursor2');
-      var a = document.querySelectorAll('a');
       
-      document.addEventListener('mousemove', function(e){
-        var x = e.clientX;
-        var y = e.clientY;
-        cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
-      });
-      
-      document.addEventListener('mousemove', function(e){
-        var x = e.clientX;
-        var y = e.clientY;
-        cursorinner.style.left = x + 'px';
-        cursorinner.style.top = y + 'px';
-      });
-      
-      document.addEventListener('mousedown', function(){
-        cursor.classList.add('click');
-        cursorinner.classList.add('cursorinnerhover')
-      });
-      
-      document.addEventListener('mouseup', function(){
-        cursor.classList.remove('click')
-        cursorinner.classList.remove('cursorinnerhover')
-      });
-      
-      a.forEach(item => {
-        item.addEventListener('mouseover', () => {
-          cursor.classList.add('hover');
-        });
-        item.addEventListener('mouseleave', () => {
-          cursor.classList.remove('hover');
-        });
-      })
-      // var loader;
-      // function loadNow(opacity){
-      //   if(opacity <= 0){
-      //     displayContent();
-      //   }
-      //   else{
-      //     loader.style.opacity = opacity;
-      //     window.setTimeout(function(){
-      //       loadNow(opacity - 0.01)
-      //     }, 100);
-      //   }
-      // }
-      // function displayContent(){
-      //   loader.style.display = 'none';
-      //   document.getelementById('content').style.display = 'block';
-      // }
-      // document.addEventListener("DOMContentLoaded", function(){
-      //   loader = document.getElementById('loader');
-      //   loader(1);
-      // });
-      let x = 0;
-      let textEffect = "Our SENSOR Solutions Suit all of \n your needs.";
-      let container = document.getElementById("effect");
-      
-      function animate() {
-          if(x < textEffect.length){
-              container.innerHTML += textEffect.charAt(x);
-              x++;
-              setTimeout(animate, 35);
-          }
-      }
-      animate();
-      let y = 0;
-      let te = "Let's Protect your Process while Increasing your Productivity";
-      let cont = document.getElementById("eft");
-      
-      function ani() {
-          if(y < te.length){
-              cont.innerHTML += te.charAt(y);
-              y++;
-              setTimeout(ani, 70);
-          }
-      }
-      ani();
       let menu = document.querySelector('#menu-icon');
       let navbar = document.querySelector('.navbar');
       
