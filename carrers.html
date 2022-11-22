@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrers</title>
+  <style>
+body {
+  margin: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background {
+  transform: translateZ(-10px) scale(2);
+}
+
+.foreground {
+  transform: translateZ(-5px) scale(1.5);
+}
+
+.background,
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.title {
+  font-size: 7rem;
+  color: white;
+  text-shadow: 0 0 5px black;;
+}
+
+section {
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: #fff;
+  
+  color: black;
+}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <!-- <img src="imgs/Mountain.png" class="background">
+      <img src="imgs/Trees.png" class="foreground"> -->
+      <img src="images/carrer.jpg" class="background">
+      <img src="images/carrers1.png" class="foreground">
+      <h1 class="title">join our team!</h1>
+    </header>
+    <section>We at XYMA Analytics think that a "Team" determines whether a company succeeds or fails. Our office is a lively place to work right away. If you work for our company, you'll be a member of a diverse team that values everyone's individual differences while collaborating fervently to achieve one common goal: ongoing evolution! If you consider yourself to be an intelligent and skilled person who is eager to contribute to the completion of difficult tasks, put your skills in our hands and we guarantee you won't be disappointed.</section>
+  </div>
+</body>
+</html>
